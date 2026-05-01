@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Newsletter | Raj Vir AI Studio | ಕನ್ನಡದಲ್ಲಿ AI ಸುದ್ದಿ</title>
+  <meta name="description" content="Karnataka's only weekly AI newsletter in Kannada. Get the latest AI tools, ChatGPT tips, and practical AI knowledge delivered to your inbox every week — free forever." />
+  <meta name="keywords" content="AI newsletter Kannada, ಕನ್ನಡ AI newsletter, ChatGPT tips Kannada, AI weekly update Karnataka, Raj Vir AI Studio newsletter" />
+  <meta property="og:title" content="Weekly AI Newsletter | Raj Vir AI Studio" />
+  <meta property="og:description" content="Karnataka's only weekly AI newsletter in Kannada — free forever." />
+  <meta property="og:url" content="https://rajviraistudio.online/newsletter" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230A0A12'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='serif' font-weight='bold' fill='%236C63FF'>R</text><circle cx='72' cy='28' r='8' fill='%2300D4FF'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #07070f;
+      --bg-surface: #0f0f1e;
+      --bg-card: #13132a;
+      --violet: #6C63FF;
+      --violet-dim: #4a43c7;
+      --cyan: #00D4FF;
+      --white: #f0f0ff;
+      --muted: #7070a0;
+      --border: rgba(108,99,255,0.18);
+      --glow-v: rgba(108,99,255,0.25);
+      --glow-c: rgba(0,212,255,0.2);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(108,99,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108,99,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    section, nav, footer, header { position: relative; z-index: 1; }
+
+    /* ========== NAVBAR ========== */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,7,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a.active { color: var(--white); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--cyan);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; background: var(--violet); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--violet), var(--violet-dim));
+      color: #fff !important;
+      padding: 0.5rem 1.4rem;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: box-shadow 0.3s !important;
+    }
+    .nav-cta:hover { box-shadow: 0 0 20px var(--glow-v); }
+    .nav-cta::after { display: none !important; }
+
+    /* ========== HERO ========== */
+    .hero {
+      padding: 7rem 4rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 65%);
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(108,99,255,0.12);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(1.8); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+
+    /* ========== SUBSCRIBE BOX ========== */
+    .subscribe-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+
+    .subscribe-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .subscribe-box p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .subscribe-row {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .subscribe-row input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .subscribe-row input:focus { border-color: var(--violet); }
+    .subscribe-row input::placeholder { color: var(--muted); }
+
+    .btn-subscribe {
+      background: linear-gradient(135deg, var(--violet), #9B6BFF);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.8rem 1.6rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: transform 0.2s, box-shadow 0.3s;
+      white-space: nowrap;
+    }
+
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--glow-v);
+    }
+
+    .subscribe-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .subscribe-note span { color: var(--violet); }
+
+    /* ========== WHAT TO EXPECT ========== */
+    .expect-section {
+      padding: 5rem 4rem;
+      background: var(--bg-surface);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--violet);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .topic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(108,99,255,0.4);
+    }
+
+    .topic-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .topic-card h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .topic-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ========== EDITIONS ========== */
+    .editions-section {
+      padding: 5rem 4rem;
+      background: var(--bg);
+    }
+
+    .editions-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .coming-soon-banner {
+      background: linear-gradient(135deg, rgba(108,99,255,0.1), rgba(0,212,255,0.05));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .coming-soon-banner .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+
+    .coming-soon-banner h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 0.4rem;
+    }
+
+    .coming-soon-banner p { color: var(--muted); font-size: 0.88rem; }
+
+    .editions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edition-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .edition-card.placeholder {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .edition-card:not(.placeholder):hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(108,99,255,0.12);
+      border-color: rgba(108,99,255,0.35);
+    }
+
+    .edition-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .edition-week {
+      background: rgba(108,99,255,0.15);
+      border: 1px solid rgba(108,99,255,0.25);
+      color: var(--violet);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+    }
+
+    .edition-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .edition-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .edition-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .edition-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.15);
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+
+    .edition-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--violet);
+      text-decoration: none;
+      transition: gap 0.2s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      padding: 0;
+    }
+
+    .btn-read:hover { gap: 0.8rem; }
+
+    .edition-locked {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Placeholder shimmer */
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-surface) 50%, var(--bg-card) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.8s infinite;
+      border-radius: 6px;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .ph-line { height: 12px; margin-bottom: 8px; }
+    .ph-line.short { width: 40%; }
+    .ph-line.med { width: 70%; }
+    .ph-title { height: 18px; width: 85%; margin-bottom: 12px; }
+    .ph-block { height: 60px; margin-bottom: 12px; }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ========== SUCCESS MESSAGE ========== */
+    .success-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: linear-gradient(135deg, var(--violet), #9B6BFF);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 40px var(--glow-v);
+      transition: transform 0.4s ease;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    .success-toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 4rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo { font-size: 1.2rem; display: inline-block; margin-bottom: 1rem; }
+    .footer-brand p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; max-width: 280px; margin-bottom: 1rem; }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .footer-col a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--violet); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { color: var(--muted); font-size: 0.82rem; }
+    .footer-bottom a { color: var(--violet); text-decoration: none; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2rem; }
+      .hero { padding: 5rem 2rem 4rem; }
+      .expect-section, .editions-section { padding: 4rem 2rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .expect-section, .editions-section { padding: 3rem 1.5rem; }
+      .subscribe-row { flex-direction: column; }
+      .editions-grid { grid-template-columns: 1fr; }
+      footer { padding: 3rem 1.5rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav>
+  <a href="index.html" class="logo">Raj Vir AI Studio</a>
+  <ul class="nav-links">
+    <li><a href="https://www.youtube.com/channel/UCCfh9sMfIlAP4DT2kH8umuw?sub_confirmation=1" target="_blank" rel="noopener">Videos</a></li>
+    <li><a href="newsletter.html" class="active">Newsletter</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="tools.html">Free Tools</a></li>
+    <li><a href="index.html#whatsapp" class="nav-cta">Join Community</a></li>
+  </ul>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-badge">
+    <div class="dot"></div>
+    Every Week · Free Forever
+  </div>
+  <h1>The <span>AI Newsletter</span><br>ಕನ್ನಡದಲ್ಲಿ</h1>
+  <p class="hero-sub">
+    One email every week. The most useful AI tools, news, and practical knowledge —
+    explained simply in Kannada. No jargon. No English barrier. Just AI you can use today.
+  </p>
+
+  <!-- Subscribe Box -->
+  <div class="subscribe-box">
+    <h3>📩 Subscribe — It's Free</h3>
+    <p>Join Kannadigas learning AI every week. Unsubscribe anytime.</p>
+    <div class="subscribe-row">
+      <input type="text" id="hero-name" placeholder="ನಿಮ್ಮ ಹೆಸರು (Your Name)" />
+      <input type="email" id="hero-email" placeholder="your@email.com" />
+      <button class="btn-subscribe" onclick="handleSubscribe()">Subscribe →</button>
+    </div>
+    <p class="subscribe-note">✦ Free forever &nbsp;·&nbsp; ✦ Weekly edition &nbsp;·&nbsp; ✦ <span>Unsubscribe anytime</span></p>
+  </div>
+
+  <!-- Stats row -->
+  <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;animation:fadeUp 0.7s ease 0.4s both;">
+    <div style="text-align:center;">
+      <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Weekly</div>
+      <div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.2rem;">Frequency</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</div>
+      <div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.2rem;">In Kannada</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Free</div>
+      <div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.2rem;">Always</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHAT TO EXPECT ========== -->
+<section class="expect-section">
+  <div class="reveal">
+    <div class="section-label">Every Edition Covers</div>
+    <h2 class="section-title">What's Inside Each Week</h2>
+    <p class="section-sub">Practical, Kannada-first AI content you can apply immediately — no background needed.</p>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-card reveal reveal-delay-1">
+      <div class="topic-icon">🤖</div>
+      <h4>ChatGPT Tips & Tricks</h4>
+      <p>Practical prompts and techniques to get the most out of ChatGPT — with real Kannada examples you can use right away.</p>
+    </div>
+    <div class="topic-card reveal reveal-delay-2">
+      <div class="topic-icon">🛠️</div>
+      <h4>Free AI Tools of the Week</h4>
+      <p>The best free AI tools discovered that week — what they do, how to use them, and who they're best for.</p>
+    </div>
+    <div class="topic-card reveal reveal-delay-3">
+      <div class="topic-icon">📰</div>
+      <h4>Weekly AI News</h4>
+      <p>The most important AI developments of the week — explained simply without the tech jargon, in Kannada.</p>
+    </div>
+    <div class="topic-card reveal reveal-delay-4">
+      <div class="topic-icon">💼</div>
+      <h4>AI for Your Career & Business</h4>
+      <p>Real ways to use AI to grow your income, save time, and stay ahead — whether you're a student, professional, or business owner.</p>
+    </div>
+    <div class="topic-card reveal reveal-delay-1">
+      <div class="topic-icon">🎯</div>
+      <h4>Step-by-Step How-tos</h4>
+      <p>One practical AI task explained step by step every week — so you leave knowing exactly how to do something new.</p>
+    </div>
+    <div class="topic-card reveal reveal-delay-2">
+      <div class="topic-icon">⭐</div>
+      <h4>Exclusive Tips & Early Access</h4>
+      <p>Subscribers get early access to new free tools, courses, and content before anyone else — plus tips shared only here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PAST EDITIONS ========== -->
+<section class="editions-section">
+  <div class="editions-header reveal">
+    <div>
+      <div class="section-label">Archive</div>
+      <h2 class="section-title">Past Editions</h2>
+      <p class="section-sub">Every edition is saved here — browse, read, and share.</p>
+    </div>
+  </div>
+
+  <!-- Coming soon banner -->
+  <div class="coming-soon-banner reveal">
+    <div class="icon">🚀</div>
+    <h4>First Edition Coming Soon!</h4>
+    <p>Subscribe above to be the first to receive it in your inbox the moment it drops.</p>
+  </div>
+
+  <!-- Placeholder edition cards -->
+  <div class="editions-grid">
+
+    <!-- Placeholder 1 -->
+    <div class="edition-card placeholder">
+      <div class="edition-meta">
+        <span class="edition-week">Week 1</span>
+        <span class="edition-date">Coming Soon</span>
+      </div>
+      <div class="skeleton ph-title"></div>
+      <div class="skeleton ph-block"></div>
+      <div class="edition-tags">
+        <span class="tag">ChatGPT</span>
+        <span class="tag">AI Tools</span>
+        <span class="tag">ಕನ್ನಡ</span>
+      </div>
+      <div class="edition-footer">
+        <div class="edition-locked">🔒 Not published yet</div>
+      </div>
+    </div>
+
+    <!-- Placeholder 2 -->
+    <div class="edition-card placeholder">
+      <div class="edition-meta">
+        <span class="edition-week">Week 2</span>
+        <span class="edition-date">Coming Soon</span>
+      </div>
+      <div class="skeleton ph-title"></div>
+      <div class="skeleton ph-block"></div>
+      <div class="edition-tags">
+        <span class="tag">AI News</span>
+        <span class="tag">How-to</span>
+        <span class="tag">ಕನ್ನಡ</span>
+      </div>
+      <div class="edition-footer">
+        <div class="edition-locked">🔒 Not published yet</div>
+      </div>
+    </div>
+
+    <!-- Placeholder 3 -->
+    <div class="edition-card placeholder">
+      <div class="edition-meta">
+        <span class="edition-week">Week 3</span>
+        <span class="edition-date">Coming Soon</span>
+      </div>
+      <div class="skeleton ph-title"></div>
+      <div class="skeleton ph-block"></div>
+      <div class="edition-tags">
+        <span class="tag">Business AI</span>
+        <span class="tag">Free Tools</span>
+        <span class="tag">ಕನ್ನಡ</span>
+      </div>
+      <div class="edition-footer">
+        <div class="edition-locked">🔒 Not published yet</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Raj Vir AI Studio</a>
+      <p>Karnataka's dedicated AI learning channel — making AI accessible to every Kannadiga.</p>
+      <p style="font-style:italic;color:var(--violet);font-size:0.9rem;">ಕನ್ನಡದಲ್ಲಿ AI ಕಲಿಯಿರಿ</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://www.youtube.com/channel/UCCfh9sMfIlAP4DT2kH8umuw?sub_confirmation=1" target="_blank" rel="noopener">Videos</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="tools.html">Free Tools</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.youtube.com/channel/UCCfh9sMfIlAP4DT2kH8umuw" target="_blank">YouTube</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter / X</a></li>
+        <li><a href="https://whatsapp.com/channel/0029Vb7jfre6xCSNWWobDT3t" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Raj Vir AI Studio. Built with ❤️ for Karnataka.</p>
+    <p>Hosted on <a href="https://vercel.com" target="_blank">Vercel</a> · Domain by <a href="https://godaddy.com" target="_blank">GoDaddy</a></p>
+  </div>
+</footer>
+
+<!-- ========== SUCCESS TOAST ========== -->
+<div class="success-toast" id="toast">🎉 Welcome aboard! Check your inbox every week.</div>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+  const SUPABASE_URL = 'SUPABASE_URL';
+  const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY';
+
+  // ===== SUBSCRIBE =====
+  async function handleSubscribe() {
+    const name = document.getElementById('hero-name').value.trim();
+    const email = document.getElementById('hero-email').value.trim();
+    if (!name || !email) { alert('Please enter your name and email.'); return; }
+
+    const btn = document.querySelector('.btn-subscribe');
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    try {
+      // Check duplicate
+      const checkRes = await fetch(
+        `${SUPABASE_URL}/rest/v1/subscribers?email=eq.${encodeURIComponent(email)}&select=email`,
+        { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
+      );
+      const existing = await checkRes.json();
+
+      if (!existing || existing.length === 0) {
+        await fetch(`${SUPABASE_URL}/rest/v1/subscribers`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ name, email, source: 'newsletter_page', created_at: new Date().toISOString() })
+        });
+      }
+
+      // Show toast
+      document.getElementById('hero-name').value = '';
+      document.getElementById('hero-email').value = '';
+      showToast('🎉 Welcome aboard! See you in your inbox every week.');
+
+    } catch(err) {
+      alert('Something went wrong. Please try again.');
+    }
+
+    btn.textContent = 'Subscribe →';
+    btn.disabled = false;
+  }
+
+  // ===== TOAST =====
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  // ===== SCROLL REVEAL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
