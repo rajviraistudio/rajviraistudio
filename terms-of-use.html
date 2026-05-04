@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use | Raj Vir AI Studio</title>
+  <meta name="description" content="Terms of Use for Raj Vir AI Studio — the rules and guidelines for using our website, newsletter, courses and tools." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230A0A12'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='serif' font-weight='bold' fill='%236C63FF'>R</text><circle cx='72' cy='28' r='8' fill='%2300D4FF'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#07070f;--bg-surface:#0f0f1e;--bg-card:#13132a;
+      --violet:#6C63FF;--cyan:#00D4FF;--white:#f0f0ff;--muted:#7070a0;
+      --border:rgba(108,99,255,0.18);
+      --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(108,99,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+    nav,section,footer{position:relative;z-index:1;}
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;position:sticky;top:0;z-index:100;background:rgba(7,7,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .logo{font-family:var(--font-display);font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+    .back-link{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+    .back-link:hover{color:var(--white);}
+
+    .page-wrap{max-width:780px;margin:0 auto;padding:4rem 2rem 6rem;}
+
+    .page-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+    .page-label{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+    .page-label::before{content:'';width:20px;height:1px;background:var(--violet);}
+    .page-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.8rem;}
+    .page-title span{background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .page-meta{font-size:0.85rem;color:var(--muted);}
+
+    .toc{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 2rem;margin-bottom:3rem;}
+    .toc-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:1rem;}
+    .toc ol{padding-left:1.2rem;display:flex;flex-direction:column;gap:0.5rem;}
+    .toc li a{color:var(--muted);text-decoration:none;font-size:0.88rem;transition:color 0.2s;}
+    .toc li a:hover{color:var(--violet);}
+
+    .section{margin-bottom:3rem;}
+    .section h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:1rem;padding-top:1rem;}
+    .section h2 .num{color:var(--violet);margin-right:0.5rem;}
+    .section p{color:var(--muted);font-size:0.95rem;line-height:1.85;margin-bottom:1rem;}
+    .section p:last-child{margin-bottom:0;}
+    .section p strong{color:var(--white);}
+    .section ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:1rem 0;}
+    .section ul li{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.9rem;color:var(--muted);}
+    .section ul li::before{content:'✦';color:var(--violet);font-size:0.7rem;flex-shrink:0;margin-top:0.3rem;}
+
+    .highlight-box{background:rgba(108,99,255,0.06);border:1px solid rgba(108,99,255,0.2);border-radius:12px;padding:1.2rem 1.5rem;margin:1.2rem 0;}
+    .highlight-box p{color:var(--muted);font-size:0.9rem;margin:0;}
+    .highlight-box p strong{color:var(--cyan);}
+
+    .warning-box{background:rgba(255,100,100,0.06);border:1px solid rgba(255,100,100,0.2);border-radius:12px;padding:1.2rem 1.5rem;margin:1.2rem 0;}
+    .warning-box p{color:var(--muted);font-size:0.9rem;margin:0;}
+    .warning-box p strong{color:#ff6b6b;}
+
+    .contact-box{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-top:3rem;text-align:center;}
+    .contact-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;}
+    .contact-box p{color:var(--muted);font-size:0.9rem;margin-bottom:1rem;}
+    .contact-box a{color:var(--violet);text-decoration:none;font-weight:600;}
+
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    footer p{color:var(--muted);font-size:0.82rem;}
+    .footer-links{display:flex;gap:1.5rem;}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--violet);}
+
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.page-wrap{padding:3rem 1.5rem 4rem;}footer{padding:2rem 1.5rem;flex-direction:column;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Raj Vir AI Studio</a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title">Terms of <span>Use</span></h1>
+    <p class="page-meta">Last updated: May 2025 · By using our website you agree to these terms</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 Table of Contents</div>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#services">Our Services</a></li>
+      <li><a href="#accounts">User Accounts</a></li>
+      <li><a href="#content">Content & Intellectual Property</a></li>
+      <li><a href="#newsletter">Newsletter Terms</a></li>
+      <li><a href="#courses-tools">Courses & Free Tools</a></li>
+      <li><a href="#prohibited">Prohibited Uses</a></li>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#changes">Changes to Terms</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Plain English Summary:</strong> Use our content to learn AI. Don't copy and resell it. Don't misuse our platform. We provide content in good faith but cannot guarantee results. Questions? Email us anytime.</p>
+  </div>
+
+  <div class="section" id="acceptance">
+    <h2><span class="num">1.</span> Acceptance of Terms</h2>
+    <p>By accessing or using <strong>rajviraistudio.online</strong> (the "Website"), subscribing to our newsletter, or using any of our services, you agree to be bound by these Terms of Use.</p>
+    <p>If you do not agree with any part of these terms, please do not use our website or services. These terms apply to all visitors, subscribers, and registered users.</p>
+  </div>
+
+  <div class="section" id="services">
+    <h2><span class="num">2.</span> Our Services</h2>
+    <p>Raj Vir AI Studio provides the following services:</p>
+    <ul>
+      <li><strong>Website</strong> — AI education content, news, and resources in Kannada and English</li>
+      <li><strong>Newsletter</strong> — Weekly AI news digest delivered via email</li>
+      <li><strong>Courses</strong> — Structured AI learning courses (free and paid)</li>
+      <li><strong>Free AI Tools</strong> — Practical tools built for everyday use</li>
+      <li><strong>YouTube Channel</strong> — Video content on AI topics in Kannada</li>
+      <li><strong>WhatsApp Community</strong> — Community discussion channel</li>
+    </ul>
+    <p>We reserve the right to modify, suspend, or discontinue any service at any time without prior notice.</p>
+  </div>
+
+  <div class="section" id="accounts">
+    <h2><span class="num">3.</span> User Accounts</h2>
+    <p>Some sections of our website (Courses and Free Tools) require signing in with a Google account. By signing in you agree to:</p>
+    <ul>
+      <li>Provide accurate and truthful information</li>
+      <li>Keep your Google account credentials secure</li>
+      <li>Not share your account access with others</li>
+      <li>Notify us immediately of any unauthorized use</li>
+    </ul>
+    <p>We reserve the right to terminate access for any user who violates these terms.</p>
+  </div>
+
+  <div class="section" id="content">
+    <h2><span class="num">4.</span> Content & Intellectual Property</h2>
+    <p>All content on Raj Vir AI Studio — including text, videos, tools, newsletter editions, AI prompts, course materials, and graphics — is the intellectual property of Raj Vir AI Studio unless otherwise stated.</p>
+    <p><strong>You may:</strong></p>
+    <ul>
+      <li>Read, watch, and use our content for personal learning</li>
+      <li>Share links to our website and newsletter editions</li>
+      <li>Use our AI prompts for your personal and professional work</li>
+      <li>Quote small portions with proper attribution to Raj Vir AI Studio</li>
+    </ul>
+    <p><strong>You may not:</strong></p>
+    <ul>
+      <li>Copy, reproduce, or republish our content without written permission</li>
+      <li>Sell or monetize our content or tools</li>
+      <li>Remove attribution or claim our content as your own</li>
+      <li>Use our content to train AI models without permission</li>
+    </ul>
+  </div>
+
+  <div class="section" id="newsletter">
+    <h2><span class="num">5.</span> Newsletter Terms</h2>
+    <p>By subscribing to our newsletter you agree to:</p>
+    <ul>
+      <li>Receive weekly emails from Raj Vir AI Studio at hello@rajviraistudio.online</li>
+      <li>Provide your real name and email address</li>
+    </ul>
+    <div class="highlight-box">
+      <p><strong>Unsubscribe anytime:</strong> Every email contains an unsubscribe link. You can also email hello@rajviraistudio.online to be removed from our list. We will process your request within 48 hours.</p>
+    </div>
+    <p>Newsletter content is for informational purposes only. AI tools and services mentioned in our newsletter are third-party products — we are not responsible for their availability, pricing, or performance.</p>
+  </div>
+
+  <div class="section" id="courses-tools">
+    <h2><span class="num">6.</span> Courses & Free Tools</h2>
+    <p>Our courses and free AI tools are provided to help you learn and apply AI in your personal and professional life.</p>
+    <ul>
+      <li><strong>Free content</strong> — accessible to all registered users at no charge</li>
+      <li><strong>Paid courses</strong> — subject to separate pricing terms at time of purchase</li>
+      <li><strong>Course access</strong> — is personal and non-transferable</li>
+      <li><strong>Tools</strong> — are provided "as-is" and may be updated or discontinued at any time</li>
+    </ul>
+    <div class="warning-box">
+      <p><strong>No guarantees:</strong> We do not guarantee specific outcomes, job placements, income, or results from using our courses or tools. Learning outcomes depend on individual effort and application.</p>
+    </div>
+  </div>
+
+  <div class="section" id="prohibited">
+    <h2><span class="num">7.</span> Prohibited Uses</h2>
+    <p>You agree not to use our website or services for:</p>
+    <ul>
+      <li>Any unlawful purpose or in violation of Indian laws</li>
+      <li>Spamming, phishing, or harassing other users</li>
+      <li>Attempting to hack, disrupt, or damage our website</li>
+      <li>Scraping or automated data collection without permission</li>
+      <li>Impersonating Raj Vir AI Studio or its team</li>
+      <li>Creating fake accounts or providing false information</li>
+      <li>Distributing malware or harmful code</li>
+    </ul>
+    <p>Violation of these terms may result in immediate termination of your access and legal action where appropriate.</p>
+  </div>
+
+  <div class="section" id="disclaimer">
+    <h2><span class="num">8.</span> Disclaimer</h2>
+    <p>All content on Raj Vir AI Studio is provided for <strong>educational and informational purposes only</strong>. We are not financial advisors, legal advisors, or career counselors.</p>
+    <ul>
+      <li>AI tools and technologies change rapidly — some information may become outdated</li>
+      <li>Third-party tools and services we mention have their own terms and may change</li>
+      <li>Results from applying AI skills vary by individual, industry, and market conditions</li>
+      <li>External links are provided for convenience — we are not responsible for third-party content</li>
+    </ul>
+    <p>Always verify important information independently before making significant personal, professional, or financial decisions.</p>
+  </div>
+
+  <div class="section" id="liability">
+    <h2><span class="num">9.</span> Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Raj Vir AI Studio shall not be liable for:</p>
+    <ul>
+      <li>Any indirect, incidental, or consequential damages arising from use of our services</li>
+      <li>Loss of data, revenue, or business opportunities</li>
+      <li>Service interruptions or technical errors</li>
+      <li>Actions taken based on our educational content</li>
+    </ul>
+    <p>Our total liability in any circumstance shall not exceed the amount you paid us in the 12 months preceding the claim (or ₹0 for free services).</p>
+  </div>
+
+  <div class="section" id="changes">
+    <h2><span class="num">10.</span> Changes to Terms</h2>
+    <p>We may update these Terms of Use as our services grow and evolve. When we make changes:</p>
+    <ul>
+      <li>The "Last updated" date at the top will be revised</li>
+      <li>Significant changes will be communicated to newsletter subscribers</li>
+      <li>Continued use of our services constitutes acceptance of the updated terms</li>
+    </ul>
+    <p>We encourage you to review these terms periodically.</p>
+  </div>
+
+  <div class="section" id="contact">
+    <h2><span class="num">11.</span> Contact Us</h2>
+    <p>If you have any questions about these Terms of Use or need clarification on any point, please reach out to us:</p>
+  </div>
+
+  <div class="contact-box">
+    <h3>📧 Questions About These Terms?</h3>
+    <p>We're happy to clarify anything in plain, simple language.</p>
+    <a href="mailto:hello@rajviraistudio.online">hello@rajviraistudio.online</a>
+    <p style="margin-top:0.8rem;font-size:0.82rem;color:var(--muted);">Raj Vir AI Studio · Karnataka, India · rajviraistudio.online</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Raj Vir AI Studio. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-use.html">Terms of Use</a>
+    <a href="mailto:hello@rajviraistudio.online">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

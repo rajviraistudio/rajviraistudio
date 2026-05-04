@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Raj Vir AI Studio</title>
+  <meta name="description" content="Privacy Policy for Raj Vir AI Studio — Learn how we collect, use and protect your data." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230A0A12'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='serif' font-weight='bold' fill='%236C63FF'>R</text><circle cx='72' cy='28' r='8' fill='%2300D4FF'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#07070f;--bg-surface:#0f0f1e;--bg-card:#13132a;
+      --violet:#6C63FF;--cyan:#00D4FF;--white:#f0f0ff;--muted:#7070a0;
+      --border:rgba(108,99,255,0.18);
+      --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(108,99,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+    nav,section,footer{position:relative;z-index:1;}
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;position:sticky;top:0;z-index:100;background:rgba(7,7,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .logo{font-family:var(--font-display);font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+    .back-link{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;display:flex;align-items:center;gap:0.4rem;}
+    .back-link:hover{color:var(--white);}
+
+    .page-wrap{max-width:780px;margin:0 auto;padding:4rem 2rem 6rem;}
+
+    .page-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+    .page-label{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+    .page-label::before{content:'';width:20px;height:1px;background:var(--violet);}
+    .page-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.8rem;}
+    .page-title span{background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .page-meta{font-size:0.85rem;color:var(--muted);}
+
+    .toc{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 2rem;margin-bottom:3rem;}
+    .toc-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:1rem;}
+    .toc ol{padding-left:1.2rem;display:flex;flex-direction:column;gap:0.5rem;}
+    .toc li a{color:var(--muted);text-decoration:none;font-size:0.88rem;transition:color 0.2s;}
+    .toc li a:hover{color:var(--violet);}
+
+    .section{margin-bottom:3rem;}
+    .section h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:1rem;padding-top:1rem;}
+    .section h2 .num{color:var(--violet);margin-right:0.5rem;}
+    .section p{color:var(--muted);font-size:0.95rem;line-height:1.85;margin-bottom:1rem;}
+    .section p:last-child{margin-bottom:0;}
+    .section p strong{color:var(--white);}
+    .section ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:1rem 0;}
+    .section ul li{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.9rem;color:var(--muted);}
+    .section ul li::before{content:'✦';color:var(--violet);font-size:0.7rem;flex-shrink:0;margin-top:0.3rem;}
+
+    .highlight-box{background:rgba(108,99,255,0.06);border:1px solid rgba(108,99,255,0.2);border-radius:12px;padding:1.2rem 1.5rem;margin:1.2rem 0;}
+    .highlight-box p{color:var(--muted);font-size:0.9rem;margin:0;}
+    .highlight-box p strong{color:var(--cyan);}
+
+    .contact-box{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-top:3rem;text-align:center;}
+    .contact-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;}
+    .contact-box p{color:var(--muted);font-size:0.9rem;margin-bottom:1rem;}
+    .contact-box a{color:var(--violet);text-decoration:none;font-weight:600;}
+    .contact-box a:hover{text-decoration:underline;}
+
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    footer p{color:var(--muted);font-size:0.82rem;}
+    .footer-links{display:flex;gap:1.5rem;}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--violet);}
+
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.page-wrap{padding:3rem 1.5rem 4rem;}footer{padding:2rem 1.5rem;flex-direction:column;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Raj Vir AI Studio</a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title">Privacy <span>Policy</span></h1>
+    <p class="page-meta">Last updated: May 2025 · Effective immediately upon use of our website</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 Table of Contents</div>
+    <ol>
+      <li><a href="#info-collect">Information We Collect</a></li>
+      <li><a href="#how-use">How We Use Your Information</a></li>
+      <li><a href="#data-storage">Data Storage & Security</a></li>
+      <li><a href="#cookies">Cookies & Tracking</a></li>
+      <li><a href="#third-party">Third Party Services</a></li>
+      <li><a href="#your-rights">Your Rights</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Summary:</strong> We collect only what's necessary to run our newsletter and website. We never sell your data. You can unsubscribe or request deletion anytime by emailing us.</p>
+  </div>
+
+  <div class="section" id="info-collect">
+    <h2><span class="num">1.</span> Information We Collect</h2>
+    <p>When you use Raj Vir AI Studio (<strong>rajviraistudio.online</strong>), we may collect the following information:</p>
+    <ul>
+      <li><strong>Name and Email Address</strong> — when you subscribe to our newsletter, join our WhatsApp community, or sign up for course/tool access</li>
+      <li><strong>Google Account Information</strong> — when you sign in with Google to access our Courses or Free Tools pages, we receive your name, email address, and profile photo from Google</li>
+      <li><strong>Usage Data</strong> — basic analytics such as pages visited, time spent, and device type (collected via Google Analytics if enabled)</li>
+      <li><strong>Feedback & Ratings</strong> — star ratings you submit on newsletter editions</li>
+    </ul>
+    <p>We do <strong>not</strong> collect payment information, passwords, phone numbers, or any sensitive personal data.</p>
+  </div>
+
+  <div class="section" id="how-use">
+    <h2><span class="num">2.</span> How We Use Your Information</h2>
+    <p>Your information is used exclusively for the following purposes:</p>
+    <ul>
+      <li>Sending you our weekly AI newsletter (if subscribed)</li>
+      <li>Providing access to Courses and Free AI Tools sections</li>
+      <li>Understanding which content is most useful to our audience</li>
+      <li>Improving our website and newsletter based on feedback</li>
+      <li>Communicating important updates about Raj Vir AI Studio</li>
+    </ul>
+    <p>We will <strong>never</strong> sell, rent, or share your personal information with third parties for marketing purposes.</p>
+  </div>
+
+  <div class="section" id="data-storage">
+    <h2><span class="num">3.</span> Data Storage & Security</h2>
+    <p>Your data is stored securely using the following services:</p>
+    <ul>
+      <li><strong>Supabase</strong> — stores subscriber names and emails with row-level security enabled</li>
+      <li><strong>Firebase (Google)</strong> — manages authentication for Google Sign-In</li>
+      <li><strong>Brevo</strong> — manages newsletter delivery</li>
+    </ul>
+    <p>All services we use follow industry-standard security practices. Data is transmitted over HTTPS (encrypted connections) at all times.</p>
+    <div class="highlight-box">
+      <p><strong>Data Retention:</strong> We retain your information for as long as you are subscribed or have an active account. You may request deletion of your data at any time by contacting us at <strong>hello@rajviraistudio.online</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="cookies">
+    <h2><span class="num">4.</span> Cookies & Tracking</h2>
+    <p>Our website may use the following types of cookies and tracking technologies:</p>
+    <ul>
+      <li><strong>Essential cookies</strong> — required for the website to function (e.g. login sessions)</li>
+      <li><strong>Analytics cookies</strong> — help us understand how visitors use our site (Google Analytics)</li>
+      <li><strong>YouTube cookies</strong> — set when you watch embedded YouTube videos on our site</li>
+    </ul>
+    <p>You can disable cookies through your browser settings. Note that disabling essential cookies may affect website functionality.</p>
+  </div>
+
+  <div class="section" id="third-party">
+    <h2><span class="num">5.</span> Third Party Services</h2>
+    <p>We use the following third-party services to operate our website. Each has their own privacy policy:</p>
+    <ul>
+      <li><strong>Google (Firebase, Analytics, YouTube)</strong> — google.com/privacy</li>
+      <li><strong>Supabase</strong> — supabase.com/privacy</li>
+      <li><strong>Brevo</strong> — brevo.com/legal/privacypolicy</li>
+      <li><strong>Vercel</strong> — vercel.com/legal/privacy-policy</li>
+      <li><strong>Zoho Mail</strong> — zoho.com/privacy.html</li>
+    </ul>
+    <p>When you click links to YouTube or external websites from our newsletter or website, those services' own privacy policies apply.</p>
+  </div>
+
+  <div class="section" id="your-rights">
+    <h2><span class="num">6.</span> Your Rights</h2>
+    <p>You have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Access</strong> — request a copy of the data we hold about you</li>
+      <li><strong>Correction</strong> — request correction of inaccurate data</li>
+      <li><strong>Deletion</strong> — request deletion of your data at any time</li>
+      <li><strong>Unsubscribe</strong> — opt out of newsletters via the unsubscribe link in every email</li>
+      <li><strong>Portability</strong> — request your data in a readable format</li>
+    </ul>
+    <p>To exercise any of these rights, please email us at <strong>hello@rajviraistudio.online</strong>. We will respond within 7 business days.</p>
+  </div>
+
+  <div class="section" id="children">
+    <h2><span class="num">7.</span> Children's Privacy</h2>
+    <p>Raj Vir AI Studio is designed for general audiences including students. We do not knowingly collect personal information from children under 13 years of age without parental consent.</p>
+    <p>If you believe we have inadvertently collected information from a child under 13, please contact us immediately at <strong>hello@rajviraistudio.online</strong> and we will delete it promptly.</p>
+  </div>
+
+  <div class="section" id="changes">
+    <h2><span class="num">8.</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time as our services evolve. When we make significant changes, we will:</p>
+    <ul>
+      <li>Update the "Last updated" date at the top of this page</li>
+      <li>Notify newsletter subscribers via email for major changes</li>
+    </ul>
+    <p>Your continued use of our website after changes are posted constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="section" id="contact">
+    <h2><span class="num">9.</span> Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+  </div>
+
+  <div class="contact-box">
+    <h3>📧 Get in Touch</h3>
+    <p>We're here to help with any privacy-related questions.</p>
+    <a href="mailto:hello@rajviraistudio.online">hello@rajviraistudio.online</a>
+    <p style="margin-top:0.8rem;font-size:0.82rem;color:var(--muted);">Raj Vir AI Studio · Karnataka, India · rajviraistudio.online</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Raj Vir AI Studio. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-use.html">Terms of Use</a>
+    <a href="mailto:hello@rajviraistudio.online">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
