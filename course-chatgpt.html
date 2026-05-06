@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPT Complete Beginner's Course in Kannada | Raj Vir AI Studio</title>
+  <meta name="description" content="Learn ChatGPT from scratch in Kannada. Free beginner course covering prompts, Deep Research, Canvas, Images and more. Get certified after completing the quiz." />
+  <meta name="keywords" content="ChatGPT course Kannada, ಕನ್ನಡದಲ್ಲಿ ChatGPT, learn ChatGPT Karnataka, free AI course Kannada, ChatGPT tutorial Kannada" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230A0A12'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='serif' font-weight='bold' fill='%236C63FF'>R</text><circle cx='72' cy='28' r='8' fill='%2300D4FF'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <style>
+    :root {
+      --bg:#07070f;--bg-surface:#0f0f1e;--bg-card:#13132a;
+      --violet:#6C63FF;--violet-dim:#4a43c7;--cyan:#00D4FF;
+      --white:#f0f0ff;--muted:#7070a0;
+      --border:rgba(108,99,255,0.18);--glow-v:rgba(108,99,255,0.25);
+      --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(108,99,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+    nav,main,footer{position:relative;z-index:1;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+    /* NAV */
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 4rem;position:sticky;top:0;z-index:100;background:rgba(7,7,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+    .nav-right{display:flex;align-items:center;gap:1rem;}
+    .back-link{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;}
+    .back-link:hover{color:var(--white);}
+    .nav-user{display:none;align-items:center;gap:0.8rem;}
+    .nav-user.visible{display:flex;}
+    .nav-avatar{width:32px;height:32px;border-radius:50%;border:2px solid var(--violet);object-fit:cover;}
+    .btn-signout{background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--muted);padding:0.3rem 0.8rem;border-radius:100px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
+    .btn-signout:hover{color:#ff6b6b;border-color:rgba(255,80,80,0.3);}
+
+    /* LOGIN GATE */
+    #login-gate{min-height:92vh;display:flex;align-items:center;justify-content:center;padding:4rem 2rem;}
+    #login-gate::before{content:'';position:fixed;width:600px;height:600px;background:radial-gradient(circle,rgba(108,99,255,0.12) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;animation:pulse 6s infinite;}
+    .login-box{background:var(--bg-card);border:1px solid var(--border);border-radius:24px;padding:3rem;max-width:460px;width:100%;text-align:center;animation:fadeUp 0.7s ease both;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
+    .login-icon{font-size:2.5rem;margin-bottom:1.2rem;}
+    .login-box h1{font-family:var(--font-display);font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.6rem;}
+    .login-box h1 span{background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .login-box p{color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:1.8rem;}
+    .btn-google{width:100%;display:flex;align-items:center;justify-content:center;gap:0.9rem;background:#fff;color:#1f1f1f;border:none;border-radius:12px;padding:0.95rem 1.5rem;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:transform 0.2s,box-shadow 0.3s;}
+    .btn-google:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,255,255,0.12);}
+    .spinner{width:18px;height:18px;border:2px solid rgba(108,99,255,0.3);border-top-color:var(--violet);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto;}
+
+    /* MAIN CONTENT */
+    #main-content{display:none;}
+    #main-content.visible{display:block;}
+
+    /* COURSE LAYOUT */
+    .course-layout{display:grid;grid-template-columns:340px 1fr;gap:0;min-height:calc(100vh - 65px);}
+
+    /* SIDEBAR */
+    .sidebar{background:var(--bg-surface);border-right:1px solid var(--border);padding:2rem 1.5rem;position:sticky;top:65px;height:calc(100vh - 65px);overflow-y:auto;}
+    .sidebar::-webkit-scrollbar{width:4px;}
+    .sidebar::-webkit-scrollbar-track{background:transparent;}
+    .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+    .course-info{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+    .course-badge{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(40,200,64,0.1);border:1px solid rgba(40,200,64,0.2);color:#28c840;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:100px;margin-bottom:0.8rem;}
+    .course-title-sm{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:0.8rem;line-height:1.3;}
+    .course-stats{display:flex;gap:1rem;flex-wrap:wrap;}
+    .course-stat{font-size:0.78rem;color:var(--muted);display:flex;align-items:center;gap:0.3rem;}
+
+    /* PROGRESS */
+    .progress-section{margin-bottom:1.5rem;}
+    .progress-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;}
+    .progress-text{font-size:0.8rem;color:var(--muted);}
+    .progress-pct{font-size:0.8rem;font-weight:700;color:var(--violet);}
+    .progress-bar{height:6px;background:rgba(108,99,255,0.15);border-radius:100px;overflow:hidden;}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:100px;transition:width 0.5s ease;}
+
+    /* CHAPTERS */
+    .chapters-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .chapter-item{display:flex;align-items:center;gap:0.8rem;padding:0.7rem 0.8rem;border-radius:10px;cursor:pointer;transition:background 0.2s;margin-bottom:0.3rem;text-decoration:none;}
+    .chapter-item:hover{background:rgba(108,99,255,0.08);}
+    .chapter-item.active{background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.2);}
+    .chapter-item.completed .chapter-check{background:var(--violet);border-color:var(--violet);color:#fff;}
+    .chapter-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.65rem;transition:all 0.3s;}
+    .chapter-num{font-size:0.65rem;color:var(--muted);}
+    .chapter-info{flex:1;min-width:0;}
+    .chapter-name{font-size:0.85rem;font-weight:500;color:var(--white);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .chapter-time{font-size:0.72rem;color:var(--muted);margin-top:0.15rem;}
+    .chapter-item.active .chapter-name{color:var(--violet);}
+
+    /* QUIZ BUTTON IN SIDEBAR */
+    .quiz-sidebar-btn{width:100%;margin-top:1.5rem;background:linear-gradient(135deg,var(--violet),#9B6BFF);color:#fff;border:none;border-radius:12px;padding:0.9rem;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:transform 0.2s,box-shadow 0.3s;display:none;}
+    .quiz-sidebar-btn.show{display:block;}
+    .quiz-sidebar-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px var(--glow-v);}
+    .quiz-sidebar-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+
+    /* MAIN AREA */
+    .course-main{padding:2.5rem 3rem;max-width:900px;}
+
+    /* VIDEO SECTION */
+    .video-section{margin-bottom:2rem;}
+    .video-wrap{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;background:var(--bg-card);border:1px solid var(--border);}
+    .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+
+    .video-header{margin-bottom:1.2rem;}
+    .current-chapter-tag{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.5rem;}
+    .current-chapter-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:-0.01em;}
+
+    .video-actions{display:flex;align-items:center;gap:1rem;margin-top:1.2rem;flex-wrap:wrap;}
+    .btn-mark-done{background:linear-gradient(135deg,var(--violet),#9B6BFF);color:#fff;border:none;border-radius:100px;padding:0.7rem 1.6rem;font-size:0.88rem;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:transform 0.2s,box-shadow 0.3s;}
+    .btn-mark-done:hover{transform:translateY(-2px);box-shadow:0 8px 25px var(--glow-v);}
+    .btn-mark-done.done{background:rgba(40,200,64,0.15);border:1px solid rgba(40,200,64,0.3);color:#28c840;}
+    .btn-next{background:transparent;border:1px solid var(--border);color:var(--white);border-radius:100px;padding:0.7rem 1.6rem;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
+    .btn-next:hover{border-color:var(--violet);color:var(--violet);}
+
+    /* COURSE DESCRIPTION */
+    .course-desc-box{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;}
+    .desc-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:1rem;}
+    .desc-text{font-size:0.9rem;color:var(--muted);line-height:1.8;}
+    .desc-text p{margin-bottom:0.8rem;}
+    .desc-text p:last-child{margin-bottom:0;}
+    .what-learn{margin-top:1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+    .learn-item{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.85rem;color:var(--muted);}
+    .learn-item::before{content:'✓';color:var(--violet);font-weight:700;flex-shrink:0;}
+
+    /* ===== QUIZ SECTION ===== */
+    #quiz-section{display:none;}
+    #quiz-section.visible{display:block;}
+
+    .quiz-header{margin-bottom:2rem;}
+    .quiz-header h2{font-family:var(--font-display);font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem;}
+    .quiz-header p{color:var(--muted);font-size:0.92rem;}
+    .quiz-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;}
+    .quiz-meta-item{display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--muted);}
+    .quiz-meta-item span{color:var(--cyan);font-weight:600;}
+
+    .quiz-attempts-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.5rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .attempts-dots{display:flex;gap:0.5rem;}
+    .attempt-dot{width:12px;height:12px;border-radius:50%;background:var(--border);}
+    .attempt-dot.used{background:#ff6b6b;}
+    .attempt-dot.current{background:var(--violet);animation:pulse 1.5s infinite;}
+
+    .question-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.2rem;}
+    .question-num{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;}
+    .question-text{font-size:1rem;font-weight:600;color:var(--white);line-height:1.5;margin-bottom:1.2rem;}
+    .options{display:flex;flex-direction:column;gap:0.6rem;}
+    .option{display:flex;align-items:center;gap:0.8rem;padding:0.8rem 1rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.2s;}
+    .option:hover{background:rgba(108,99,255,0.08);border-color:rgba(108,99,255,0.3);}
+    .option.selected{background:rgba(108,99,255,0.12);border-color:var(--violet);}
+    .option.correct{background:rgba(40,200,64,0.1);border-color:rgba(40,200,64,0.4);}
+    .option.wrong{background:rgba(255,80,80,0.08);border-color:rgba(255,80,80,0.3);}
+    .option input[type="radio"]{accent-color:var(--violet);width:16px;height:16px;flex-shrink:0;}
+    .option label{font-size:0.9rem;color:var(--muted);cursor:pointer;flex:1;}
+    .option.selected label{color:var(--white);}
+
+    .quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:2rem;flex-wrap:wrap;gap:1rem;}
+    .quiz-progress-text{font-size:0.85rem;color:var(--muted);}
+    .quiz-progress-text span{color:var(--violet);font-weight:700;}
+    .btn-quiz-submit{background:linear-gradient(135deg,var(--violet),#9B6BFF);color:#fff;border:none;border-radius:100px;padding:0.85rem 2rem;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:transform 0.2s,box-shadow 0.3s;}
+    .btn-quiz-submit:hover{transform:translateY(-2px);box-shadow:0 8px 25px var(--glow-v);}
+    .btn-quiz-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+
+    /* RESULTS */
+    #quiz-result{display:none;text-align:center;padding:3rem 2rem;}
+    #quiz-result.visible{display:block;}
+    .result-icon{font-size:4rem;margin-bottom:1rem;}
+    .result-title{font-family:var(--font-display);font-size:2rem;font-weight:800;margin-bottom:0.5rem;}
+    .result-score{font-size:3rem;font-weight:800;font-family:var(--font-display);margin:1rem 0;}
+    .result-score.pass{color:#28c840;}
+    .result-score.fail{color:#ff6b6b;}
+    .result-msg{color:var(--muted);font-size:1rem;line-height:1.7;max-width:500px;margin:0 auto 2rem;}
+    .btn-certificate{display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#f9c74f,#f4a261);color:#1a1a2e;border:none;border-radius:100px;padding:1rem 2.5rem;font-size:1rem;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:transform 0.2s,box-shadow 0.3s;margin:0.5rem;}
+    .btn-certificate:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(249,199,79,0.3);}
+    .btn-retake{display:inline-flex;align-items:center;gap:0.6rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:100px;padding:0.9rem 2rem;font-size:0.95rem;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;margin:0.5rem;}
+    .btn-retake:hover{border-color:var(--violet);color:var(--violet);}
+    .btn-rewatch{display:inline-flex;align-items:center;gap:0.6rem;background:rgba(255,80,80,0.1);border:1px solid rgba(255,80,80,0.2);color:#ff6b6b;border-radius:100px;padding:0.9rem 2rem;font-size:0.95rem;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;margin:0.5rem;}
+
+    /* CERTIFICATE */
+    #cert-section{display:none;padding:2rem 0;}
+    #cert-section.visible{display:block;}
+    .cert-wrap{background:linear-gradient(135deg,#0d0d1a,#13132a);border:2px solid rgba(108,99,255,0.4);border-radius:20px;padding:3rem;text-align:center;max-width:700px;margin:0 auto;position:relative;overflow:hidden;}
+    .cert-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--violet));}
+    .cert-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--violet));}
+    .cert-logo{font-family:var(--font-display);font-size:1.2rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.3rem;}
+    .cert-logo-sub{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
+    .cert-presents{font-size:0.85rem;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.05em;}
+    .cert-title{font-family:var(--font-display);font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#f9c74f,#f4a261);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2rem;letter-spacing:-0.01em;}
+    .cert-awarded{font-size:0.85rem;color:var(--muted);margin-bottom:0.5rem;}
+    .cert-name{font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--white);margin-bottom:2rem;letter-spacing:-0.01em;}
+    .cert-course{font-size:0.9rem;color:var(--muted);margin-bottom:0.5rem;}
+    .cert-course-name{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--violet);margin-bottom:2rem;}
+    .cert-details{display:flex;justify-content:center;gap:3rem;margin-bottom:2rem;flex-wrap:wrap;}
+    .cert-detail{text-align:center;}
+    .cert-detail-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+    .cert-detail-val{font-size:0.9rem;font-weight:600;color:var(--white);}
+    .cert-score-badge{display:inline-block;background:rgba(40,200,64,0.1);border:1px solid rgba(40,200,64,0.3);color:#28c840;font-size:0.8rem;font-weight:700;padding:0.3rem 1rem;border-radius:100px;margin-bottom:2rem;}
+    .cert-footer{font-size:0.75rem;color:var(--muted);letter-spacing:0.05em;}
+    .cert-corner{position:absolute;width:80px;height:80px;border:1px solid rgba(108,99,255,0.2);}
+    .cert-corner.tl{top:20px;left:20px;border-right:none;border-bottom:none;}
+    .cert-corner.tr{top:20px;right:20px;border-left:none;border-bottom:none;}
+    .cert-corner.bl{bottom:20px;left:20px;border-right:none;border-top:none;}
+    .cert-corner.br{bottom:20px;right:20px;border-left:none;border-top:none;}
+    .btn-download-cert{display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#f9c74f,#f4a261);color:#1a1a2e;border:none;border-radius:100px;padding:0.9rem 2rem;font-size:0.9rem;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:transform 0.2s,box-shadow 0.3s;margin-top:1.5rem;}
+    .btn-download-cert:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(249,199,79,0.3);}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:linear-gradient(135deg,var(--violet),#9B6BFF);color:#fff;padding:0.9rem 2rem;border-radius:100px;font-weight:600;font-size:0.9rem;box-shadow:0 8px 30px var(--glow-v);transition:transform 0.4s ease;z-index:999;white-space:nowrap;}
+    .toast.show{transform:translateX(-50%) translateY(0);}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .course-layout{grid-template-columns:280px 1fr;}
+      .course-main{padding:2rem;}
+    }
+    @media(max-width:768px){
+      nav{padding:1rem 1.5rem;}
+      .course-layout{grid-template-columns:1fr;grid-template-rows:auto 1fr;}
+      .sidebar{position:relative;top:0;height:auto;max-height:350px;}
+      .course-main{padding:1.5rem;}
+      .what-learn{grid-template-columns:1fr;}
+      .cert-details{gap:1.5rem;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Raj Vir AI Studio</a>
+  <div class="nav-right">
+    <a href="courses.html" class="back-link">← All Courses</a>
+    <div class="nav-user" id="nav-user">
+      <img class="nav-avatar" id="nav-avatar" src="" alt="" />
+      <button class="btn-signout" onclick="signOut()">Sign Out</button>
+    </div>
+  </div>
+</nav>
+
+<!-- LOGIN GATE -->
+<div id="login-gate">
+  <div class="login-box">
+    <div class="login-icon">🤖</div>
+    <h1>Access <span>ChatGPT Course</span></h1>
+    <p>Sign in with Google to start learning — free forever. Your progress is saved automatically.</p>
+    <button class="btn-google" id="google-btn" onclick="signInWithGoogle()">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Continue with Google — It's Free
+    </button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+  <div class="course-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="course-info">
+        <div class="course-badge">✓ Free Course</div>
+        <div class="course-title-sm">ChatGPT Complete Beginner's Guide — ಕನ್ನಡದಲ್ಲಿ</div>
+        <div class="course-stats">
+          <span class="course-stat">⏱ 38 mins</span>
+          <span class="course-stat">📹 12 chapters</span>
+          <span class="course-stat">🌱 Beginner</span>
+        </div>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-label">
+          <span class="progress-text">Your Progress</span>
+          <span class="progress-pct" id="progress-pct">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="chapters-label">Course Content</div>
+
+      <div id="chapters-list">
+        <!-- Chapters injected by JS -->
+      </div>
+
+      <button class="quiz-sidebar-btn" id="quiz-btn-sidebar" onclick="startQuiz()">
+        🎯 Take Final Quiz
+      </button>
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="course-main">
+
+      <!-- VIDEO SECTION -->
+      <div id="video-section">
+        <div class="video-header">
+          <div class="current-chapter-tag" id="current-tag">Chapter 1</div>
+          <div class="current-chapter-title" id="current-title">Introduction & What is ChatGPT?</div>
+        </div>
+
+        <div class="video-section">
+          <div class="video-wrap">
+            <iframe id="course-video"
+              src="https://www.youtube.com/embed/mOPn_zQ8gXs?start=0&rel=0&modestbranding=1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-actions">
+            <button class="btn-mark-done" id="mark-done-btn" onclick="markChapterDone()">
+              ✓ Mark as Complete
+            </button>
+            <button class="btn-next" onclick="nextChapter()">Next Chapter →</button>
+          </div>
+        </div>
+
+        <!-- COURSE DESCRIPTION -->
+        <div class="course-desc-box">
+          <div class="desc-title">About This Course</div>
+          <div class="desc-text">
+            <p>This comprehensive beginner's guide to ChatGPT is taught entirely in Kannada, making AI accessible to everyone in Karnataka — no technical background required.</p>
+            <p>In 38 minutes, you'll go from knowing nothing about ChatGPT to using it confidently for work, study, and daily life.</p>
+          </div>
+          <div class="what-learn">
+            <div class="learn-item">How to get started with ChatGPT</div>
+            <div class="learn-item">Personalize settings for your needs</div>
+            <div class="learn-item">Write effective prompts</div>
+            <div class="learn-item">Use Deep Research feature</div>
+            <div class="learn-item">Work with ChatGPT Projects</div>
+            <div class="learn-item">Generate images with AI</div>
+            <div class="learn-item">Edit code using Canvas</div>
+            <div class="learn-item">Free vs Paid comparison</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ SECTION -->
+      <div id="quiz-section">
+        <div class="quiz-header">
+          <h2>🎯 Final Quiz</h2>
+          <p>Answer 25 questions about ChatGPT. Score 75% or more to earn your free certificate!</p>
+          <div class="quiz-meta">
+            <div class="quiz-meta-item">📝 <span>25 Questions</span></div>
+            <div class="quiz-meta-item">🎯 Pass mark: <span>75% (19/25)</span></div>
+            <div class="quiz-meta-item">🔄 Attempts: <span id="attempts-left-text">3 remaining</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-attempts-bar">
+          <div>
+            <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.4rem;">Attempts Used</div>
+            <div class="attempts-dots" id="attempts-dots">
+              <div class="attempt-dot current"></div>
+              <div class="attempt-dot"></div>
+              <div class="attempt-dot"></div>
+            </div>
+          </div>
+          <div style="font-size:0.82rem;color:var(--muted);">You have 3 attempts. Use them wisely!</div>
+        </div>
+
+        <div id="questions-container"></div>
+
+        <div class="quiz-nav">
+          <div class="quiz-progress-text">Question <span id="q-current">1</span> of <span id="q-total">25</span></div>
+          <button class="btn-quiz-submit" id="submit-btn" onclick="submitQuiz()" disabled>Submit Quiz</button>
+        </div>
+      </div>
+
+      <!-- QUIZ RESULT -->
+      <div id="quiz-result">
+        <div class="result-icon" id="result-icon">🎉</div>
+        <div class="result-title" id="result-title">Congratulations!</div>
+        <div class="result-score" id="result-score">92%</div>
+        <div class="result-msg" id="result-msg">You passed!</div>
+        <div>
+          <button class="btn-certificate" id="cert-btn" onclick="showCertificate()" style="display:none;">
+            🏆 Get Your Certificate
+          </button>
+          <button class="btn-retake" id="retake-btn" onclick="retakeQuiz()" style="display:none;">
+            🔄 Retake Quiz
+          </button>
+          <button class="btn-rewatch" id="rewatch-btn" onclick="rewatchCourse()" style="display:none;">
+            📺 Rewatch Course First
+          </button>
+        </div>
+      </div>
+
+      <!-- CERTIFICATE -->
+      <div id="cert-section">
+        <div class="cert-wrap" id="certificate">
+          <div class="cert-corner tl"></div>
+          <div class="cert-corner tr"></div>
+          <div class="cert-corner bl"></div>
+          <div class="cert-corner br"></div>
+          <div class="cert-logo">Raj Vir AI Studio</div>
+          <div class="cert-logo-sub">ಕನ್ನಡದಲ್ಲಿ AI ಕಲಿಯಿರಿ</div>
+          <div class="cert-presents">This is to certify that</div>
+          <div class="cert-title">Certificate of Completion</div>
+          <div class="cert-awarded">has been awarded to</div>
+          <div class="cert-name" id="cert-name">Student Name</div>
+          <div class="cert-course">for successfully completing</div>
+          <div class="cert-course-name">ChatGPT Complete Beginner's Guide — ಕನ್ನಡದಲ್ಲಿ</div>
+          <div class="cert-score-badge" id="cert-score-badge">Score: 92% ✓ Passed</div>
+          <div class="cert-details">
+            <div class="cert-detail">
+              <div class="cert-detail-label">Date Completed</div>
+              <div class="cert-detail-val" id="cert-date">May 2025</div>
+            </div>
+            <div class="cert-detail">
+              <div class="cert-detail-label">Course Duration</div>
+              <div class="cert-detail-val">38 Minutes</div>
+            </div>
+            <div class="cert-detail">
+              <div class="cert-detail-label">Level</div>
+              <div class="cert-detail-val">Beginner</div>
+            </div>
+            <div class="cert-detail">
+              <div class="cert-detail-label">Certificate ID</div>
+              <div class="cert-detail-val" id="cert-id">RV-GPT-001</div>
+            </div>
+          </div>
+          <div class="cert-footer">rajviraistudio.online · Verified Certificate · Karnataka, India</div>
+        </div>
+        <div style="text-align:center;">
+          <button class="btn-download-cert" onclick="downloadCertificate()">
+            ⬇️ Download Certificate
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ===== FIREBASE CONFIG =====
+  const firebaseConfig = {
+  apiKey: "AIzaSyAbmOshlGOnZOAWcd8n8PdilePNj3DNITs",
+  authDomain: "raj-vir-ai-studio-4de9b.firebaseapp.com",
+  projectId: "raj-vir-ai-studio-4de9b",
+  storageBucket: "raj-vir-ai-studio-4de9b.firebasestorage.app",
+  messagingSenderId: "138247658864",
+  appId: "1:138247658864:web:cba5f7e17fcd4b8dcfc3b5",
+  measurementId: "G-38JBBDRQF5"
+};
+  const SUPABASE_URL = 'https://viwlsusrvwhxpsmmrxsj.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpd2xzdXNydndoeHBzbW1yeHNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1MTM3NTgsImV4cCI6MjA5MzA4OTc1OH0.fsWlM3YcTNaZ2xwYlIApHl9lI30X9DncgDX-el-_5Vk';
+  const COURSE_ID = 'chatgpt-beginner';
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  // ===== CHAPTERS DATA =====
+  const chapters = [
+    { id:1,  title:"Introduction & What is ChatGPT?",    time:"00:00", seconds:0    },
+    { id:2,  title:"How to Get Started with ChatGPT",    time:"01:09", seconds:69   },
+    { id:3,  title:"Temporary Chats in ChatGPT",         time:"02:25", seconds:145  },
+    { id:4,  title:"Personalizing ChatGPT Settings",     time:"02:57", seconds:177  },
+    { id:5,  title:"Free vs Paid ChatGPT — Is it Worth It?", time:"06:30", seconds:390  },
+    { id:6,  title:"How to Use ChatGPT",                 time:"07:36", seconds:456  },
+    { id:7,  title:"Effective Prompting Techniques",     time:"12:48", seconds:768  },
+    { id:8,  title:"ChatGPT Deep Research",              time:"15:44", seconds:944  },
+    { id:9,  title:"Projects in ChatGPT",                time:"18:48", seconds:1128 },
+    { id:10, title:"ChatGPT Images 2.0",                 time:"23:39", seconds:1419 },
+    { id:11, title:"Editing Code with Canvas",           time:"28:03", seconds:1683 },
+    { id:12, title:"ChatGPT Puzzles & Fun Features",     time:"32:22", seconds:1942 },
+  ];
+
+  // ===== QUIZ QUESTIONS =====
+  const questions = [
+    { q:"What is ChatGPT?", opts:["A search engine","An AI chatbot by OpenAI","A social media platform","A coding tool"], ans:1 },
+    { q:"Which company created ChatGPT?", opts:["Google","Microsoft","OpenAI","Meta"], ans:2 },
+    { q:"What does 'GPT' stand for?", opts:["General Purpose Technology","Generative Pre-trained Transformer","Google Processing Tool","Global Public Technology"], ans:1 },
+    { q:"What is a 'prompt' in ChatGPT?", opts:["A reminder notification","The instruction or question you give to ChatGPT","A payment method","A type of AI image"], ans:1 },
+    { q:"What is the ChatGPT 'Temporary Chat' feature used for?", opts:["Saving chats permanently","Chatting without saving history","Sharing chats with others","Making video calls"], ans:1 },
+    { q:"What does ChatGPT Deep Research do?", opts:["Searches only Wikipedia","Generates images","Conducts comprehensive web research and provides detailed reports","Translates languages"], ans:2 },
+    { q:"What can ChatGPT Projects help you with?", opts:["Making video calls","Organizing related chats and files together for a specific goal","Playing games","Sending emails automatically"], ans:1 },
+    { q:"What is ChatGPT Canvas used for?", opts:["Drawing pictures","Editing documents and code collaboratively with AI","Video editing","Creating websites automatically"], ans:1 },
+    { q:"What is ChatGPT Images 2.0 capable of?", opts:["Only editing existing photos","Generating new AI images from text descriptions","Converting images to videos","Recognizing faces"], ans:1 },
+    { q:"Which of these is a good prompting technique?", opts:["Ask very vague questions","Be as specific and detailed as possible","Use only one word","Ask in code language"], ans:1 },
+    { q:"What happens to your chats in Temporary Chat mode?", opts:["They are saved forever","They are shared publicly","They are not saved after the session ends","They are sent to your email"], ans:2 },
+    { q:"How can you personalize ChatGPT for your needs?", opts:["You cannot personalize it","Through the Settings menu with custom instructions","By paying extra money","By creating a new account"], ans:1 },
+    { q:"What is one advantage of ChatGPT paid plan over free?", opts:["It has fewer features","Access to more advanced models and higher usage limits","It is slower","It cannot generate images"], ans:1 },
+    { q:"What should you do to get better results from ChatGPT?", opts:["Keep questions very short","Provide context and be specific in your prompts","Never ask follow-up questions","Avoid using examples"], ans:1 },
+    { q:"Can ChatGPT make mistakes?", opts:["Never — it is always correct","Yes — it can sometimes give wrong information","Only with math questions","Only in languages other than English"], ans:1 },
+    { q:"What type of tasks can ChatGPT help with?", opts:["Only writing emails","Only coding","A wide range including writing, research, coding, analysis and more","Only translation"], ans:2 },
+    { q:"What does the 'Custom Instructions' feature in ChatGPT settings allow you to do?", opts:["Change the app's color theme","Tell ChatGPT about yourself so it responds more personally","Delete all your chats","Share your account with others"], ans:1 },
+    { q:"What is 'Prompt Engineering'?", opts:["Building robots","The skill of writing effective instructions to get better AI responses","Programming ChatGPT's code","Installing ChatGPT on servers"], ans:1 },
+    { q:"Which feature helps ChatGPT search the internet for latest information?", opts:["Canvas","Projects","Deep Research / Web Browse","Image Generation"], ans:2 },
+    { q:"What is the best way to start using ChatGPT as a beginner?", opts:["Start with the most complex tasks","Sign up for the paid plan immediately","Start with simple everyday tasks and gradually explore more features","Watch only coding tutorials"], ans:2 },
+    { q:"Can ChatGPT generate images?", opts:["No, it can only generate text","Yes, using the image generation feature","Only with a special plugin","Only on mobile"], ans:1 },
+    { q:"What is the purpose of ChatGPT's Projects feature?", opts:["To play games","To organize related conversations and files for a specific project or goal","To send emails","To make video calls"], ans:1 },
+    { q:"How should you follow up if ChatGPT gives an incomplete answer?", opts:["Start a completely new chat","Ask it to continue or provide more details in the same chat","Delete the response","Switch to a different AI tool"], ans:1 },
+    { q:"What language is this ChatGPT course taught in?", opts:["Hindi","Tamil","Kannada","Telugu"], ans:2 },
+    { q:"Who is this ChatGPT course designed for?", opts:["Only software developers","Only students","Anyone — complete beginners with no technical background","Only business owners"], ans:2 },
+  ];
+
+  // ===== STATE =====
+  let currentUser = null;
+  let currentChapter = 0;
+  let completedChapters = new Set();
+  let quizAttempts = 0;
+  let maxAttempts = 3;
+  let quizAnswers = {};
+  let quizPassed = false;
+  let bestScore = 0;
+  let mustRewatch = false;
+
+  // ===== AUTH =====
+  auth.onAuthStateChanged(user => {
+    if (user) { currentUser = user; showContent(user); }
+    else { showGate(); }
+  });
+
+  function showContent(user) {
+    document.getElementById('login-gate').style.display = 'none';
+    document.getElementById('main-content').classList.add('visible');
+    document.getElementById('nav-user').classList.add('visible');
+    document.getElementById('nav-avatar').src = user.photoURL || '';
+    loadProgress();
+    renderChapters();
+  }
+
+  function showGate() {
+    document.getElementById('login-gate').style.display = 'flex';
+    document.getElementById('main-content').classList.remove('visible');
+  }
+
+  async function signInWithGoogle() {
+    const btn = document.getElementById('google-btn');
+    btn.innerHTML = '<div class="spinner"></div>';
+    btn.disabled = true;
+    try { await auth.signInWithPopup(provider); }
+    catch(e) {
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Continue with Google — It\'s Free';
+      btn.disabled = false;
+    }
+  }
+
+  async function signOut() { await auth.signOut(); }
+
+  // ===== PROGRESS =====
+  function getStorageKey() { return `${COURSE_ID}_${currentUser?.uid}`; }
+
+  function loadProgress() {
+    const saved = localStorage.getItem(getStorageKey());
+    if (saved) {
+      const data = JSON.parse(saved);
+      completedChapters = new Set(data.completed || []);
+      quizAttempts = data.attempts || 0;
+      quizPassed = data.passed || false;
+      bestScore = data.bestScore || 0;
+      mustRewatch = data.mustRewatch || false;
+    }
+    updateProgress();
+  }
+
+  function saveProgress() {
+    localStorage.setItem(getStorageKey(), JSON.stringify({
+      completed: [...completedChapters],
+      attempts: quizAttempts,
+      passed: quizPassed,
+      bestScore,
+      mustRewatch
+    }));
+  }
+
+  function updateProgress() {
+    const pct = Math.round((completedChapters.size / chapters.length) * 100);
+    document.getElementById('progress-pct').textContent = pct + '%';
+    document.getElementById('progress-fill').style.width = pct + '%';
+    const allDone = completedChapters.size === chapters.length;
+    const canTakeQuiz = allDone && !mustRewatch && quizAttempts < maxAttempts;
+    const btn = document.getElementById('quiz-btn-sidebar');
+    if (allDone || quizPassed) {
+      btn.classList.add('show');
+      btn.disabled = !canTakeQuiz && !quizPassed;
+      btn.textContent = quizPassed ? '🏆 View Certificate' : (canTakeQuiz ? '🎯 Take Final Quiz' : '🔄 No Attempts Left');
+      if (quizPassed) btn.onclick = showCertificate;
+    }
+    renderChapters();
+  }
+
+  // ===== CHAPTERS =====
+  function renderChapters() {
+    const container = document.getElementById('chapters-list');
+    container.innerHTML = '';
+    chapters.forEach((ch, i) => {
+      const done = completedChapters.has(ch.id);
+      const active = i === currentChapter;
+      const div = document.createElement('div');
+      div.className = `chapter-item${active ? ' active' : ''}${done ? ' completed' : ''}`;
+      div.onclick = () => goToChapter(i);
+      div.innerHTML = `
+        <div class="chapter-check">${done ? '✓' : '<span class="chapter-num">'+(i+1)+'</span>'}</div>
+        <div class="chapter-info">
+          <div class="chapter-name">${ch.title}</div>
+          <div class="chapter-time">${ch.time}</div>
+        </div>`;
+      container.appendChild(div);
+    });
+  }
+
+  function goToChapter(index) {
+    currentChapter = index;
+    const ch = chapters[index];
+    document.getElementById('current-tag').textContent = `Chapter ${index + 1} of ${chapters.length}`;
+    document.getElementById('current-title').textContent = ch.title;
+    document.getElementById('course-video').src = `https://www.youtube.com/embed/mOPn_zQ8gXs?start=${ch.seconds}&rel=0&modestbranding=1`;
+    const done = completedChapters.has(ch.id);
+    const btn = document.getElementById('mark-done-btn');
+    btn.textContent = done ? '✓ Completed' : '✓ Mark as Complete';
+    btn.className = 'btn-mark-done' + (done ? ' done' : '');
+    renderChapters();
+    document.querySelector('.course-main').scrollTo(0, 0);
+  }
+
+  function markChapterDone() {
+    const ch = chapters[currentChapter];
+    completedChapters.add(ch.id);
+    mustRewatch = false;
+    saveProgress();
+    updateProgress();
+    document.getElementById('mark-done-btn').textContent = '✓ Completed';
+    document.getElementById('mark-done-btn').className = 'btn-mark-done done';
+    showToast('✓ Chapter marked as complete!');
+    if (completedChapters.size === chapters.length) {
+      showToast('🎉 Course complete! Take the quiz to get your certificate!');
+    }
+  }
+
+  function nextChapter() {
+    if (currentChapter < chapters.length - 1) goToChapter(currentChapter + 1);
+    else showToast('You have reached the last chapter!');
+  }
+
+  // ===== QUIZ =====
+  function startQuiz() {
+    if (quizPassed) { showCertificate(); return; }
+    if (mustRewatch) { showToast('Please rewatch the course first!'); return; }
+    if (quizAttempts >= maxAttempts) { showToast('No attempts left. Please rewatch the course.'); return; }
+    quizAnswers = {};
+    document.getElementById('video-section').style.display = 'none';
+    document.getElementById('quiz-section').classList.add('visible');
+    document.getElementById('quiz-result').classList.remove('visible');
+    renderQuiz();
+    updateAttemptsUI();
+    window.scrollTo(0, 0);
+  }
+
+  function renderQuiz() {
+    const container = document.getElementById('questions-container');
+    container.innerHTML = '';
+    document.getElementById('q-total').textContent = questions.length;
+    questions.forEach((q, i) => {
+      const card = document.createElement('div');
+      card.className = 'question-card';
+      card.id = `q-card-${i}`;
+      card.innerHTML = `
+        <div class="question-num">Question ${i+1} of ${questions.length}</div>
+        <div class="question-text">${q.q}</div>
+        <div class="options">
+          ${q.opts.map((opt, j) => `
+            <div class="option" id="opt-${i}-${j}" onclick="selectOption(${i}, ${j})">
+              <input type="radio" name="q${i}" value="${j}" id="radio-${i}-${j}" />
+              <label for="radio-${i}-${j}">${opt}</label>
+            </div>`).join('')}
+        </div>`;
+      container.appendChild(card);
+    });
+    updateSubmitBtn();
+  }
+
+  function selectOption(qIdx, optIdx) {
+    quizAnswers[qIdx] = optIdx;
+    questions[qIdx].opts.forEach((_, j) => {
+      document.getElementById(`opt-${qIdx}-${j}`).classList.remove('selected');
+    });
+    document.getElementById(`opt-${qIdx}-${optIdx}`).classList.add('selected');
+    document.getElementById(`radio-${qIdx}-${optIdx}`).checked = true;
+    document.getElementById('q-current').textContent = qIdx + 1;
+    updateSubmitBtn();
+  }
+
+  function updateSubmitBtn() {
+    const answered = Object.keys(quizAnswers).length;
+    document.getElementById('submit-btn').disabled = answered < questions.length;
+    document.getElementById('submit-btn').textContent = `Submit Quiz (${answered}/${questions.length} answered)`;
+  }
+
+  function updateAttemptsUI() {
+    document.getElementById('attempts-left-text').textContent = `${maxAttempts - quizAttempts} remaining`;
+    const dots = document.getElementById('attempts-dots');
+    dots.innerHTML = '';
+    for (let i = 0; i < maxAttempts; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'attempt-dot' + (i < quizAttempts ? ' used' : '') + (i === quizAttempts ? ' current' : '');
+      dots.appendChild(dot);
+    }
+  }
+
+  function submitQuiz() {
+    let correct = 0;
+    questions.forEach((q, i) => {
+      if (quizAnswers[i] === q.ans) correct++;
+    });
+    const score = Math.round((correct / questions.length) * 100);
+    const passed = score >= 75;
+    quizAttempts++;
+    if (score > bestScore) bestScore = score;
+    if (passed) quizPassed = true;
+    if (!passed && quizAttempts >= maxAttempts) mustRewatch = true;
+    saveProgress();
+    showResult(score, passed, correct);
+  }
+
+  function showResult(score, passed, correct) {
+    document.getElementById('quiz-section').classList.remove('visible');
+    const result = document.getElementById('quiz-result');
+    result.classList.add('visible');
+    document.getElementById('result-icon').textContent = passed ? '🎉' : '😔';
+    document.getElementById('result-title').textContent = passed ? 'Congratulations! You Passed!' : 'Not Quite There Yet';
+    const scoreEl = document.getElementById('result-score');
+    scoreEl.textContent = score + '%';
+    scoreEl.className = 'result-score ' + (passed ? 'pass' : 'fail');
+    const attemptsLeft = maxAttempts - quizAttempts;
+    document.getElementById('result-msg').textContent = passed
+      ? `You got ${correct} out of ${questions.length} questions correct. You've earned your certificate!`
+      : attemptsLeft > 0
+        ? `You got ${correct} out of ${questions.length} correct. You need 75% to pass. You have ${attemptsLeft} attempt(s) left.`
+        : `You got ${correct} out of ${questions.length} correct. You've used all 3 attempts. Please rewatch the course and try again.`;
+    document.getElementById('cert-btn').style.display = passed ? 'inline-flex' : 'none';
+    document.getElementById('retake-btn').style.display = (!passed && quizAttempts < maxAttempts) ? 'inline-flex' : 'none';
+    document.getElementById('rewatch-btn').style.display = (!passed && quizAttempts >= maxAttempts) ? 'inline-flex' : 'none';
+    window.scrollTo(0, 0);
+  }
+
+  function retakeQuiz() { startQuiz(); }
+
+  function rewatchCourse() {
+    document.getElementById('quiz-result').classList.remove('visible');
+    document.getElementById('video-section').style.display = 'block';
+    completedChapters.clear();
+    quizAttempts = 0;
+    mustRewatch = false;
+    saveProgress();
+    updateProgress();
+    goToChapter(0);
+    showToast('Rewatch the course then take the quiz again!');
+  }
+
+  // ===== CERTIFICATE =====
+  function showCertificate() {
+    document.getElementById('quiz-result').classList.remove('visible');
+    document.getElementById('video-section').style.display = 'none';
+    document.getElementById('cert-section').classList.add('visible');
+    const user = auth.currentUser;
+    document.getElementById('cert-name').textContent = user?.displayName || 'Student';
+    document.getElementById('cert-date').textContent = new Date().toLocaleDateString('en-IN', { month:'long', year:'numeric' });
+    document.getElementById('cert-score-badge').textContent = `Score: ${bestScore}% ✓ Passed`;
+    const id = 'RV-GPT-' + (user?.uid?.substring(0,6).toUpperCase() || '000001');
+    document.getElementById('cert-id').textContent = id;
+    window.scrollTo(0, 0);
+  }
+
+  function downloadCertificate() {
+    showToast('📄 Preparing certificate for download...');
+    setTimeout(() => {
+      const cert = document.getElementById('certificate');
+      const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+      <style>
+        body{margin:0;background:#07070f;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'DM Sans',sans-serif;}
+        ${cert.outerHTML}
+      </style></head><body>${cert.outerHTML}</body></html>`;
+      const blob = new Blob([html], {type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ChatGPT-Certificate-RajVirAIStudio.html';
+      a.click();
+      showToast('✅ Certificate downloaded!');
+    }, 500);
+  }
+
+  // ===== UTILS =====
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+</script>
+</body>
+</html>

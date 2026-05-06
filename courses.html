@@ -280,52 +280,47 @@
     <button class="filter-btn" onclick="filterCourses('intermediate',this)">🚀 Intermediate</button>
   </div>
 
-  <div class="coming-soon-banner reveal">
-    <div class="cs-icon">🚀</div>
-    <div class="cs-text">
-      <h3>First Course <span>Dropping Soon!</span></h3>
-      <p>We're building Karnataka's best AI courses in Kannada. Enter your email to get notified the moment the first course goes live.</p>
-      <div class="notify-row">
-        <input type="email" id="notify-email" placeholder="your@email.com" />
-        <button class="btn-notify" onclick="handleNotify()">Notify Me 🔔</button>
-      </div>
-    </div>
-  </div>
-
   <section class="courses-section">
     <div class="section-label reveal">Course Library</div>
     <div class="courses-grid" id="courses-grid">
 
-      <div class="course-card" data-type="free" data-level="beginner">
+      <!-- COURSE 1: ChatGPT -->
+      <div class="course-card live" data-type="free" data-level="beginner" onclick="window.location.href='course-chatgpt.html'">
         <div class="course-thumb violet">🤖<span class="course-badge badge-free">Free</span></div>
         <div class="course-info">
           <div class="course-level">🌱 Beginner</div>
-          <div class="skeleton ph-title"></div>
-          <div class="skeleton ph-line"></div>
-          <div class="skeleton ph-line short"></div>
+          <h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:0.6rem;line-height:1.3;">ChatGPT Complete Beginner's Guide — ಕನ್ನಡದಲ್ಲಿ</h3>
+          <p style="font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;">Master ChatGPT from scratch in Kannada. Prompting, Deep Research, Canvas, image generation and more.</p>
           <div class="course-meta">
-            <div class="course-stats"><span class="course-stat">📹 —</span><span class="course-stat">⏱ —</span></div>
-            <span class="course-price price-soon">Coming Soon</span>
+            <div class="course-stats">
+              <span class="course-stat">📹 12 Chapters</span>
+              <span class="course-stat">⏱ 38 mins</span>
+            </div>
+            <span class="course-price price-free">Free + 🏆 Certificate</span>
           </div>
         </div>
       </div>
 
-      <div class="course-card" data-type="paid" data-level="beginner">
-        <div class="course-thumb cyan">💬<span class="course-badge badge-paid">Paid</span></div>
+      <!-- COURSE 2: Gemini -->
+      <div class="course-card live" data-type="free" data-level="beginner" onclick="window.location.href='course-gemini.html'">
+        <div class="course-thumb cyan">🔵<span class="course-badge badge-free">Free</span></div>
         <div class="course-info">
           <div class="course-level">🌱 Beginner</div>
-          <div class="skeleton ph-title"></div>
-          <div class="skeleton ph-line"></div>
-          <div class="skeleton ph-line short"></div>
+          <h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:0.6rem;line-height:1.3;">Google Gemini Complete Beginner's Guide — ಕನ್ನಡದಲ್ಲಿ</h3>
+          <p style="font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;">Learn Google Gemini from scratch in Kannada. Gemini Advanced, Deep Research, Gems, Workspace integration and more.</p>
           <div class="course-meta">
-            <div class="course-stats"><span class="course-stat">📹 —</span><span class="course-stat">⏱ —</span></div>
-            <span class="course-price price-soon">Coming Soon</span>
+            <div class="course-stats">
+              <span class="course-stat">📹 Full Tutorial</span>
+              <span class="course-stat">⏱ Complete Guide</span>
+            </div>
+            <span class="course-price price-free">Free + 🏆 Certificate</span>
           </div>
         </div>
       </div>
 
+      <!-- Placeholder 3 -->
       <div class="course-card" data-type="free" data-level="intermediate">
-        <div class="course-thumb mixed">🛠️<span class="course-badge badge-free">Free</span></div>
+        <div class="course-thumb mixed">🛠️<span class="course-badge badge-soon">Coming Soon</span></div>
         <div class="course-info">
           <div class="course-level">🚀 Intermediate</div>
           <div class="skeleton ph-title"></div>
@@ -338,6 +333,7 @@
         </div>
       </div>
 
+      <!-- Placeholder 4 -->
       <div class="course-card" data-type="paid" data-level="intermediate">
         <div class="course-thumb gold">💼<span class="course-badge badge-paid">Paid</span></div>
         <div class="course-info">
