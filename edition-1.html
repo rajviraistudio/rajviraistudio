@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 19 — ChatGPT Got Smarter, India's Biggest AI Bet & Google's Big Event Is Coming | Raj Vir AI Studio</title>
+  <meta name="description" content="ChatGPT's brand new brain is here, Maharashtra just made India's boldest AI move ever, and Google I/O 2026 is days away. Your weekly AI Rundown — in simple English." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230A0A12'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='serif' font-weight='bold' fill='%236C63FF'>R</text><circle cx='72' cy='28' r='8' fill='%2300D4FF'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#07070f;--bg-surface:#0f0f1e;--bg-card:#13132a;
+      --violet:#6C63FF;--violet-dim:#4a43c7;--cyan:#00D4FF;
+      --white:#f0f0ff;--muted:#7070a0;
+      --border:rgba(108,99,255,0.2);--glow-v:rgba(108,99,255,0.25);
+      --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(108,99,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+
+    /* NAV */
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 4rem;position:sticky;top:0;z-index:100;background:rgba(7,7,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+    .nav-right{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+    .back-link{color:var(--muted);text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s;}
+    .back-link:hover{color:var(--white);}
+    .lang-toggle{display:flex;align-items:center;gap:0;background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:3px;}
+    .lang-btn{padding:0.3rem 0.9rem;border-radius:100px;font-size:0.75rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--muted);font-family:var(--font-body);transition:all 0.2s;}
+    .lang-btn.active{background:linear-gradient(135deg,var(--violet),#9B6BFF);color:#fff;}
+    .translating{display:none;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--cyan);}
+    .translating.show{display:flex;}
+    .t-spinner{width:10px;height:10px;border:2px solid rgba(0,212,255,0.3);border-top-color:var(--cyan);border-radius:50%;animation:spin 0.8s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+    /* WRAPPER */
+    .page-wrap{max-width:760px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+
+    /* HEADER */
+    .edition-header{padding:3.5rem 0 2rem;border-bottom:1px solid var(--border);}
+    .edition-meta{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+    .week-pill{background:linear-gradient(135deg,var(--violet),#9B6BFF);color:#fff;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 1rem;border-radius:100px;}
+    .edition-date{font-size:0.82rem;color:var(--muted);}
+    .read-time{font-size:0.82rem;color:var(--muted);}
+    .edition-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.02em;line-height:1.15;margin-bottom:1rem;}
+    .edition-title span{color:var(--cyan);}
+
+    /* MORNING HOOK */
+    .morning-hook{padding:2rem 0;border-bottom:1px solid var(--border);}
+    .hook-greeting{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem;}
+    .hook-greeting::before{content:'';width:16px;height:1px;background:var(--violet);}
+    .hook-text{font-size:1.05rem;line-height:1.85;color:var(--muted);}
+    .hook-text strong{color:var(--white);}
+
+    /* TOPICS LIST */
+    .topics-list{padding:2rem 0;border-bottom:1px solid var(--border);}
+    .topics-label{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .topics-ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+    .topics-ul li{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.92rem;color:var(--muted);cursor:pointer;transition:color 0.2s;}
+    .topics-ul li:hover{color:var(--white);}
+    .topics-ul li::before{content:'•';color:var(--violet);font-size:1rem;flex-shrink:0;margin-top:0.05rem;}
+
+    /* STORY DIVIDER */
+    .section-divider{display:flex;align-items:center;gap:1rem;padding:2.5rem 0 1.5rem;}
+    .divider-label{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet);white-space:nowrap;}
+    .divider-line{flex:1;height:1px;background:var(--border);}
+
+    /* STORY CARD */
+    .story-card{border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2rem;transition:border-color 0.3s;}
+    .story-card:hover{border-color:rgba(108,99,255,0.4);}
+    .story-img{width:100%;height:240px;object-fit:cover;display:block;}
+    .story-img-placeholder{width:100%;height:140px;background:linear-gradient(135deg,rgba(108,99,255,0.1),rgba(0,212,255,0.05));display:flex;align-items:center;justify-content:center;font-size:2.5rem;border-bottom:1px solid var(--border);}
+    .story-body{padding:1.5rem;}
+    .story-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.6rem;}
+    .story-headline{font-family:var(--font-display);font-size:1.2rem;font-weight:700;line-height:1.3;margin-bottom:1.2rem;color:var(--white);}
+    .story-part{margin-bottom:1.2rem;}
+    .story-part-label{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.4rem;}
+    .story-part p{font-size:0.9rem;color:var(--muted);line-height:1.75;}
+    .story-part p strong{color:var(--white);}
+    .story-matters{background:rgba(108,99,255,0.06);border:1px solid rgba(108,99,255,0.15);border-radius:10px;padding:1rem 1.2rem;margin-top:0.4rem;}
+    .story-matters p{font-size:0.88rem;color:var(--muted);line-height:1.7;}
+    .story-matters p strong{color:var(--cyan);}
+
+    /* TOOLS SECTION */
+    .tools-section{padding:2rem 0;border-top:1px solid var(--border);}
+    .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+    .section-header h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;}
+    .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .tool-pill{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;transition:border-color 0.2s,transform 0.2s;text-decoration:none;display:block;}
+    .tool-pill:hover{border-color:rgba(108,99,255,0.4);transform:translateY(-2px);}
+    .tool-pill-name{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.3rem;}
+    .tool-pill-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+    .tool-pill-link{font-size:0.75rem;color:var(--violet);font-weight:600;margin-top:0.5rem;display:block;}
+
+    /* EVERYTHING ELSE */
+    .else-section{padding:2rem 0;border-top:1px solid var(--border);}
+    .else-list{display:flex;flex-direction:column;gap:0.8rem;}
+    .else-item{display:flex;align-items:flex-start;gap:0.8rem;padding:0.8rem;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.2s;}
+    .else-item:hover{border-color:rgba(108,99,255,0.35);}
+    .else-num{font-size:0.72rem;font-weight:700;color:var(--violet);flex-shrink:0;width:20px;margin-top:0.1rem;}
+    .else-text{font-size:0.88rem;color:var(--muted);line-height:1.6;}
+    .else-text strong{color:var(--white);}
+
+    /* PROMPT STATION */
+    .prompt-section{padding:2rem 0;border-top:1px solid var(--border);}
+    .prompt-cards{display:flex;flex-direction:column;gap:1.2rem;}
+    .prompt-card{background:rgba(108,99,255,0.05);border:1px solid rgba(108,99,255,0.2);border-radius:14px;padding:1.5rem;position:relative;}
+    .prompt-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:14px 14px 0 0;}
+    .prompt-num{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:0.5rem;}
+    .prompt-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.8rem;}
+    .prompt-use{font-size:0.8rem;color:var(--muted);margin-bottom:1rem;}
+    .prompt-box{background:rgba(0,0,0,0.3);border:1px solid rgba(108,99,255,0.15);border-radius:8px;padding:1rem;font-family:'Courier New',monospace;font-size:0.82rem;color:var(--cyan);line-height:1.7;margin-bottom:0.8rem;}
+    .copy-btn{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);color:var(--violet);padding:0.3rem 0.8rem;border-radius:100px;font-size:0.72rem;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
+    .copy-btn:hover{background:rgba(108,99,255,0.2);}
+    .more-prompts{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,var(--violet),#9B6BFF);color:#fff;text-decoration:none;padding:0.7rem 1.5rem;border-radius:100px;font-size:0.85rem;font-weight:700;margin-top:1rem;transition:transform 0.2s,box-shadow 0.3s;}
+    .more-prompts:hover{transform:translateY(-2px);box-shadow:0 8px 25px var(--glow-v);}
+
+    /* NEXT STEP CTA */
+    .nextstep-section{padding:2rem 0;border-top:1px solid var(--border);}
+    .nextstep-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+    .nextstep-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-decoration:none;display:block;transition:border-color 0.2s,transform 0.2s;}
+    .nextstep-card:hover{border-color:rgba(108,99,255,0.4);transform:translateY(-2px);}
+    .nextstep-icon{font-size:1.5rem;margin-bottom:0.6rem;}
+    .nextstep-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.3rem;}
+    .nextstep-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+    .nextstep-arrow{font-size:0.78rem;color:var(--violet);font-weight:600;margin-top:0.5rem;display:block;}
+
+    /* ARCHIVE SECTION */
+    .archive-section{padding:2rem 0;border-top:1px solid var(--border);}
+    .archive-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+    .archive-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none;display:block;transition:border-color 0.2s;}
+    .archive-item:hover{border-color:rgba(108,99,255,0.3);}
+    .archive-thumb{height:100px;background:linear-gradient(135deg,rgba(108,99,255,0.15),rgba(0,212,255,0.08));display:flex;align-items:center;justify-content:center;font-size:2rem;}
+    .archive-thumb-img{padding:0;overflow:hidden;}
+    .archive-thumb-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
+    .archive-item:hover .archive-thumb-img img{transform:scale(1.04);}
+    .archive-info{padding:0.9rem;}
+    .archive-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:0.3rem;}
+    .archive-title{font-size:0.85rem;font-weight:600;color:var(--white);line-height:1.3;}
+
+    /* FEEDBACK */
+    .feedback-section{padding:2rem 0 3rem;border-top:1px solid var(--border);text-align:center;}
+    .feedback-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;}
+    .feedback-sub{font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;}
+    .stars{display:flex;justify-content:center;gap:0.5rem;}
+    .star-btn{background:none;border:none;font-size:2rem;cursor:pointer;transition:transform 0.2s;filter:grayscale(1);opacity:0.4;}
+    .star-btn:hover,.star-btn.active{filter:grayscale(0);opacity:1;transform:scale(1.2);}
+    .feedback-thanks{display:none;margin-top:1rem;font-size:0.9rem;color:var(--cyan);}
+    .feedback-thanks.show{display:block;}
+
+    /* SHARE BAR */
+    .share-bar{display:flex;align-items:center;gap:0.8rem;padding:1.5rem 0;border-top:1px solid var(--border);flex-wrap:wrap;}
+    .share-label{font-size:0.82rem;color:var(--muted);}
+    .share-btn{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted);padding:0.4rem 0.9rem;border-radius:100px;font-size:0.78rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:var(--font-body);transition:all 0.2s;}
+    .share-btn:hover{border-color:var(--violet);color:var(--violet);}
+
+    /* FOOTER */
+    .edition-footer{padding:2rem 0;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-logo{font-family:var(--font-display);font-size:1rem;font-weight:800;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .footer-links{display:flex;gap:1.5rem;}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--violet);}
+
+    @media(max-width:768px){
+      nav{padding:1rem 1.5rem;}
+      .page-wrap{padding:0 1.2rem;}
+      .tools-grid,.nextstep-grid,.archive-grid{grid-template-columns:1fr;}
+      .lang-btn{padding:0.25rem 0.7rem;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Raj Vir AI Studio</a>
+  <div class="nav-right">
+    <div class="translating" id="translating"><div class="t-spinner"></div><span>Translating...</span></div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-kn" onclick="setLang('kn')">ಕನ್ನಡ</button>
+    </div>
+    <a href="newsletter.html" class="back-link">← All Editions</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="edition-header">
+    <div class="edition-meta">
+      <span class="week-pill">Week 19 · 2026</span>
+      <span class="edition-date">📅 May 11, 2026</span>
+      <span class="read-time">⏱ 7 min read</span>
+    </div>
+    <h1 class="edition-title" id="edition-title">ChatGPT Got Smarter, India's Biggest AI Bet &amp; <span>Google's Big Event Is Just Days Away</span></h1>
+
+    <!-- SHARE BAR -->
+    <div class="share-bar">
+      <span class="share-label">Share:</span>
+      <a href="https://wa.me/?text=Check%20this%20AI%20newsletter!%20https://rajviraistudio.online/edition-1.html" target="_blank" class="share-btn">💬 WhatsApp</a>
+      <a href="https://x.com/intent/tweet?text=Reading%20%40rajviraistudio%27s%20newsletter!&url=https://rajviraistudio.online/edition-1.html" target="_blank" class="share-btn">🐦 X</a>
+      <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+    </div>
+  </div>
+
+  <!-- SECTION 1: MORNING HOOK -->
+  <div class="morning-hook">
+    <div class="hook-greeting">Good Morning, Raj Vir AI Studio Reader ☀️</div>
+    <p class="hook-text" id="hook-text">
+      Welcome to the very <strong>first edition</strong> of the Raj Vir AI Studio newsletter — your weekly cup of AI news, brewed simple and served fresh every Monday. This week was a big one. <strong>OpenAI quietly swapped out ChatGPT's brain</strong> for a smarter, faster one — and it's already live for you right now. Closer to home, the government just made <strong>India's boldest AI policy move ever</strong>, with jobs and money flowing in your direction. And next week, <strong>Google I/O 2026</strong> kicks off — and what they announce could change how you use Search, Gmail, and YouTube for years to come. Let's get into it. ☕
+    </p>
+  </div>
+
+  <!-- SECTION 2: TOPICS LIST -->
+  <div class="topics-list">
+    <div class="topics-label">In today's AI Rundown:</div>
+    <ul class="topics-ul" id="topics-ul">
+      <li id="topic-1">OpenAI launched GPT-5.5 Instant — ChatGPT's new default brain</li>
+      <li id="topic-2">Maharashtra passed India's biggest AI policy — ₹10,000 crore &amp; 1.5 lakh jobs</li>
+      <li id="topic-3">Google I/O 2026 is coming May 19 — Gemini 4.0 and AI glasses expected</li>
+      <li id="topic-4">4 free AI tools you can start using today</li>
+      <li id="topic-5">Quick AI news bites from this week</li>
+      <li id="topic-extra">Trending AI tools, prompts, and more</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 3: MAIN STORIES -->
+  <div class="section-divider"><div class="divider-line"></div><div class="divider-label">📰 Main Stories</div><div class="divider-line"></div></div>
+
+  <!-- STORY 1 -->
+  <div class="story-card">
+    <img src="images/edition-1-story1.png" class="story-img" alt="OpenAI releases GPT-5.5 Instant — new default model for ChatGPT" />
+    <div class="story-body">
+      <div class="story-tag">Story 1</div>
+      <div class="story-headline" id="s1-headline">OpenAI Just Upgraded ChatGPT's Default Brain — Meet GPT-5.5 Instant</div>
+      <div class="story-part">
+        <div class="story-part-label">📋 Rundown</div>
+        <p id="s1-rundown">OpenAI released a brand new model called <strong>GPT-5.5 Instant</strong> and made it the new default for all ChatGPT users. It replaces the older GPT-5.3 and is faster, smarter, and makes fewer mistakes — especially on sensitive topics like health, law, and money.</p>
+      </div>
+      <div class="story-part">
+        <div class="story-part-label">🔍 Details</div>
+        <p id="s1-details">GPT-5.5 Instant scores significantly higher on reasoning and math tests than its predecessor. One of its biggest new tricks: it can now look back at your past conversations, files you've shared, and even your Gmail (if connected) to give you <strong>more personalised answers</strong>. OpenAI says this model also reduces "hallucinations" — those confidently wrong answers AI sometimes gives — especially in medical and legal topics. The update is rolling out to Plus and Pro users first, with Free users getting it very soon.</p>
+      </div>
+      <div class="story-part">
+        <div class="story-part-label">💡 Why This Matters to You</div>
+        <div class="story-matters"><p id="s1-matters">If you use the <strong>free version of ChatGPT, this upgrade costs you nothing</strong>. For students preparing for NEET, UPSC, or engineering exams across Karnataka, a smarter, more accurate model means fewer misleading answers when you're studying late at night. For small business owners using ChatGPT to write content or reply to customers, this means more reliable, personal responses. Simply open ChatGPT — the upgrade is already there.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 2 -->
+  <div class="story-card">
+    <img src="images/edition-1-story2.png" class="story-img" alt="Maharashtra AI Policy 2026 — Rs 10,000 crore investment announced" />
+    <div class="story-body">
+      <div class="story-tag">Story 2</div>
+      <div class="story-headline" id="s2-headline">Maharashtra Just Launched India's Boldest AI Policy — ₹10,000 Crore &amp; 1.5 Lakh New Jobs</div>
+      <div class="story-part">
+        <div class="story-part-label">📋 Rundown</div>
+        <p id="s2-rundown">The Maharashtra government approved its <strong>AI Policy 2026</strong>, targeting ₹10,000 crore in investment and the creation of 1.5 lakh new jobs by 2031. This is one of the biggest state-level AI moves in India's history.</p>
+      </div>
+      <div class="story-part">
+        <div class="story-part-label">🔍 Details</div>
+        <p id="s2-details">The policy will set up <strong>six AI Excellence Centres and five AI Innovation Cities</strong> across Maharashtra. It includes a ₹500 crore startup fund, 2,000 GPUs for computing power, and financial support for 5,000 small businesses to adopt AI. The government will also train <strong>2 lakh youth and professionals</strong> in AI skills. Chief Minister Devendra Fadnavis noted that 70% of jobs will be reshaped by AI in the coming years. Maharashtra also plans to become India's first state with a dedicated <strong>ethical AI framework</strong>.</p>
+      </div>
+      <div class="story-part">
+        <div class="story-part-label">💡 Why This Matters to You</div>
+        <div class="story-matters"><p id="s2-matters">Karnataka and Maharashtra are India's two biggest tech states — <strong>what Maharashtra does today, Karnataka often follows tomorrow</strong>. This policy signals that AI jobs are coming fast, and young people in Tier-2 Karnataka cities like Hubballi, Belagavi, and Dharwad who learn AI skills now will have a massive career advantage. It also proves that <strong>Indian governments are finally taking AI seriously</strong> — this is no longer just a Silicon Valley story. It's happening right next door.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 3 -->
+  <div class="story-card">
+    <img src="images/edition-1-story3.png" class="story-img" alt="Google I/O 2026 — AI, XR and new OS coming May 19" />
+    <div class="story-body">
+      <div class="story-tag">Story 3</div>
+      <div class="story-headline" id="s3-headline">Google I/O 2026 Is Coming May 19 — And It Could Change Everything You Use Online</div>
+      <div class="story-part">
+        <div class="story-part-label">📋 Rundown</div>
+        <p id="s3-rundown">Google has confirmed its annual developer event, <strong>Google I/O 2026</strong>, begins on May 19. AI will dominate the show — with a major new Gemini model (possibly Gemini 4.0), AI-powered smart glasses, and a brand new laptop operating system all expected to be announced.</p>
+      </div>
+      <div class="story-part">
+        <div class="story-part-label">🔍 Details</div>
+        <p id="s3-details">Google is widely expected to unveil <strong>Gemini 4.0</strong>, its biggest AI model upgrade of 2026. Since Gemini is already built into Google Search, Gmail, Docs, and YouTube, an upgrade touches hundreds of millions of Indian users immediately. Google is also expected to show off <strong>smart AI glasses</strong> (in partnership with Samsung and fashion brands) and a new OS called "Aluminum OS" that merges Android and Chrome OS for PCs. The event runs May 19–20 and will be <strong>streamed free globally</strong> on YouTube.</p>
+      </div>
+      <div class="story-part">
+        <div class="story-part-label">💡 Why This Matters to You</div>
+        <div class="story-matters"><p id="s3-matters">Millions of Karnataka students and professionals use Google every single day — Search, YouTube, Gmail, Google Docs. When Gemini gets a major upgrade at I/O, it flows directly into the tools you already use, <strong>completely free</strong>. Keep an eye on Google I/O next week — what's announced on May 19 could change how you search, study, and work online almost immediately. We'll cover all the highlights in next week's edition! 🔥</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: TRENDING AI TOOLS -->
+  <div class="section-divider"><div class="divider-line"></div><div class="divider-label">🛠️ Trending AI Tools</div><div class="divider-line"></div></div>
+  <div class="tools-section">
+    <div class="tools-grid">
+      <a href="https://notebooklm.google.com" target="_blank" class="tool-pill">
+        <div class="tool-pill-name" id="tool1-name">NotebookLM</div>
+        <div class="tool-pill-desc" id="tool1-desc">Upload your PDFs, notes, or YouTube videos and chat with them like a personal tutor. Ask it to summarise a chapter, make flashcards, or even turn your notes into an audio podcast. 100% free.</div>
+        <span class="tool-pill-link">Try it free →</span>
+      </a>
+      <a href="https://www.chatpdf.com" target="_blank" class="tool-pill">
+        <div class="tool-pill-name" id="tool2-name">ChatPDF</div>
+        <div class="tool-pill-desc" id="tool2-desc">Drop any PDF — a textbook, government form, or exam paper — and ask questions in plain language. Perfect for students and anyone who struggles with long, dense documents. Free to use.</div>
+        <span class="tool-pill-link">Try it free →</span>
+      </a>
+      <a href="https://gamma.app" target="_blank" class="tool-pill">
+        <div class="tool-pill-name" id="tool3-name">Gamma</div>
+        <div class="tool-pill-desc" id="tool3-desc">Type a topic and it instantly creates a beautiful presentation for you — like PowerPoint, but done in seconds by AI. Great for college projects, client pitches, and business meetings. Free tier available.</div>
+        <span class="tool-pill-link">Try it free →</span>
+      </a>
+      <a href="https://elevenlabs.io" target="_blank" class="tool-pill">
+        <div class="tool-pill-name" id="tool4-name">ElevenLabs</div>
+        <div class="tool-pill-desc" id="tool4-desc">The world's best AI voice generator. Convert any text into realistic audio in multiple languages. Free plan gives ~10 minutes of audio per month — ideal for explainer videos and audio content.</div>
+        <span class="tool-pill-link">Try it free →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION 5: EVERYTHING ELSE -->
+  <div class="section-divider"><div class="divider-line"></div><div class="divider-label">📰 Everything Else in AI Today</div><div class="divider-line"></div></div>
+  <div class="else-section">
+    <div class="else-list">
+      <a href="https://releasebot.io/updates/openai/chatgpt" target="_blank" class="else-item">
+        <span class="else-num">01</span>
+        <div class="else-text"><strong id="else1-title">ChatGPT Now Lets You Shop Without Leaving the Chat</strong> — <span id="else1-desc">OpenAI upgraded ChatGPT's shopping features — you can now browse products, compare prices, and see reviews all within the chat window, without opening a single new tab.</span></div>
+      </a>
+      <a href="https://releasebot.io/updates/google/gemini" target="_blank" class="else-item">
+        <span class="else-num">02</span>
+        <div class="else-text"><strong id="else2-title">Google Is Offering a Free AI Coding Course in June — No Experience Needed</strong> — <span id="else2-desc">Google and Kaggle launched a free AI agents coding course starting June 2026. You can learn to build software using AI, even if you've never written a single line of code. Registration is now open.</span></div>
+      </a>
+      <a href="https://blog.mean.ceo/microsoft-linkedin-news-may-2026/" target="_blank" class="else-item">
+        <span class="else-num">03</span>
+        <div class="else-text"><strong id="else3-title">LinkedIn's AI Hiring Tools Are Now a ₹3,700 Crore Business</strong> — <span id="else3-desc">LinkedIn's AI-powered hiring agents are on track to generate $450 million (roughly ₹3,700 crore) in annual revenue. The platform is rapidly becoming a fully AI-driven job marketplace — which changes how your profile should look.</span></div>
+      </a>
+      <a href="https://llm-stats.com/ai-news" target="_blank" class="else-item">
+        <span class="else-num">04</span>
+        <div class="else-text"><strong id="else4-title">Anthropic Launches 10 Ready-Made AI Agents for Banks</strong> — <span id="else4-desc">Anthropic released 10 pre-built AI agents designed to automate tasks in banks, insurance companies, and investment firms — signalling AI's deep entry into India's banking and finance sector.</span></div>
+      </a>
+      <a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report" target="_blank" class="else-item">
+        <span class="else-num">05</span>
+        <div class="else-text"><strong id="else5-title">Stanford Report: India Now Ranks in the Global Top 4 for AI</strong> — <span id="else5-desc">Stanford University's prestigious annual AI Index ranked India among the top 4 nations worldwide for AI capabilities and policy. India is also the world's 2nd largest contributor of AI projects on GitHub. 🇮🇳</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION 7: PROMPT STATION -->
+  <div class="section-divider"><div class="divider-line"></div><div class="divider-label">🎯 Prompt Station</div><div class="divider-line"></div></div>
+  <div class="prompt-section">
+    <div class="prompt-cards">
+      <div class="prompt-card">
+        <div class="prompt-num">Prompt 01</div>
+        <div class="prompt-title" id="p1-title">Smart Exam Study Planner</div>
+        <div class="prompt-use" id="p1-use">Use this when: You have an exam coming up and need a structured, day-by-day study plan built just for you.</div>
+        <div class="prompt-box" id="p1-text">I am a student preparing for [exam name — e.g. NEET / UPSC / CET / 12th Board Exams]. I have [X weeks/days] left before the exam. The topics I still need to cover are: [list your topics here]. My weak areas are [mention your weak subjects]. Create a detailed day-by-day study plan for me. For each day, tell me: which topic to study, for how long, what type of practice to do (reading, notes, MCQs, mock test), and give me one motivational tip to stay on track.</div>
+        <button class="copy-btn" onclick="copyPrompt('p1-text', this)">📋 Copy Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-num">Prompt 02</div>
+        <div class="prompt-title" id="p2-title">Shop Product Description Writer</div>
+        <div class="prompt-use" id="p2-use">Use this when: You run a small shop and need attractive product descriptions for Instagram, WhatsApp catalog, or an online store.</div>
+        <div class="prompt-box" id="p2-text">I run a small [type of shop — e.g. saree shop / bakery / mobile accessories store] in [city name]. I want to write an attractive product description for [product name]. The product's key features are: [describe the product briefly]. The price is ₹[price]. My customers are mostly [describe your customers — e.g. women aged 25-45 / students / local families]. Write me a short, catchy product description of 3-4 lines in simple English that I can use on Instagram and my WhatsApp catalog. Make it feel warm and trustworthy, not like a boring advertisement.</div>
+        <button class="copy-btn" onclick="copyPrompt('p2-text', this)">📋 Copy Prompt</button>
+      </div>
+    </div>
+    <a href="https://rajviraistudio.online/tools.html" class="more-prompts">🎯 Browse All AI Prompts →</a>
+  </div>
+
+  <!-- SECTION 8: NEXT STEP -->
+  <div class="section-divider"><div class="divider-line"></div><div class="divider-label">🚀 Whenever You're Ready to Take the Next Step</div><div class="divider-line"></div></div>
+  <div class="nextstep-section">
+    <div class="nextstep-grid">
+      <a href="https://rajviraistudio.online/courses.html" class="nextstep-card">
+        <div class="nextstep-icon">🎓</div>
+        <div class="nextstep-title">AI Courses in Kannada</div>
+        <div class="nextstep-desc">Structured, step-by-step courses for beginners to advanced — taught entirely in Kannada.</div>
+        <span class="nextstep-arrow">Browse Courses →</span>
+      </a>
+      <a href="https://rajviraistudio.online/tools.html" class="nextstep-card">
+        <div class="nextstep-icon">🛠️</div>
+        <div class="nextstep-title">Free AI Tools</div>
+        <div class="nextstep-desc">Practical AI tools built by Raj Vir AI Studio. Updated after every YouTube video.</div>
+        <span class="nextstep-arrow">Try Free Tools →</span>
+      </a>
+      <a href="https://rajviraistudio.online/tools.html" class="nextstep-card">
+        <div class="nextstep-icon">🎯</div>
+        <div class="nextstep-title">AI Prompt Library</div>
+        <div class="nextstep-desc">100+ ready-to-use AI prompts for work, business, studying, and daily life.</div>
+        <span class="nextstep-arrow">Explore Prompts →</span>
+      </a>
+      <a href="https://whatsapp.com/channel/0029Vb7jfre6xCSNWWobDT3t" target="_blank" class="nextstep-card">
+        <div class="nextstep-icon">💬</div>
+        <div class="nextstep-title">WhatsApp Community</div>
+        <div class="nextstep-desc">Join our WhatsApp channel for daily AI tips, early access, and community discussions.</div>
+        <span class="nextstep-arrow">Join Community →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION 9: ARCHIVE + VIDEOS -->
+  <div class="section-divider"><div class="divider-line"></div><div class="divider-label">📚 Read Our Last Newsletter &amp; Recent Videos</div><div class="divider-line"></div></div>
+  <div class="archive-section">
+    <div class="archive-grid">
+      <!-- First Edition Note -->
+      <a href="newsletter.html" class="archive-item">
+        <div class="archive-thumb archive-thumb-img">
+          <img src="images/edition-1-story1.png" alt="Edition 1 — Newsletter Archive" />
+        </div>
+        <div class="archive-info">
+          <div class="archive-label">Newsletter Archive</div>
+          <div class="archive-title" id="prev-title">This is our very first edition! Browse all editions here.</div>
+        </div>
+      </a>
+      <!-- Video 1 -->
+      <a href="https://youtu.be/mzu10Oib7Ww" target="_blank" class="archive-item">
+        <div class="archive-thumb archive-thumb-img">
+          <img src="https://img.youtube.com/vi/mzu10Oib7Ww/hqdefault.jpg" alt="Google Gemini 3.1 Tutorial 2026" />
+        </div>
+        <div class="archive-info">
+          <div class="archive-label">Latest Video</div>
+          <div class="archive-title" id="vid1-title">[ ಕನ್ನಡ ] Google Gemini 3.1 | Features, Tips &amp; Full Tutorial 2026</div>
+        </div>
+      </a>
+      <!-- Video 2 -->
+      <a href="https://youtu.be/mOPn_zQ8gXs" target="_blank" class="archive-item">
+        <div class="archive-thumb archive-thumb-img">
+          <img src="https://img.youtube.com/vi/mOPn_zQ8gXs/hqdefault.jpg" alt="ChatGPT Tutorial 2026 for Beginners" />
+        </div>
+        <div class="archive-info">
+          <div class="archive-label">Recent Video</div>
+          <div class="archive-title" id="vid2-title">[ ಕನ್ನಡ ] ChatGPT Tutorial 2026 for Beginners | Complete Guide (Free to Advanced)</div>
+        </div>
+      </a>
+      <!-- Channel Link -->
+      <a href="https://www.youtube.com/channel/UCCfh9sMfIlAP4DT2kH8umuw?sub_confirmation=1" target="_blank" class="archive-item">
+        <div class="archive-thumb archive-thumb-img">
+          <img src="images/channel-photo.png" alt="Raj Vir AI Studio YouTube Channel" />
+        </div>
+        <div class="archive-info">
+          <div class="archive-label">Our Channel</div>
+          <div class="archive-title" id="vid3-title">Watch All Videos on Raj Vir AI Studio YouTube Channel →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION 10: FEEDBACK -->
+  <div class="section-divider"><div class="divider-line"></div><div class="divider-label">💬 Your Feedback</div><div class="divider-line"></div></div>
+  <div class="feedback-section">
+    <div class="feedback-title">What did you think of today's edition?</div>
+    <div class="feedback-sub">Your rating helps us make every edition better ⭐</div>
+    <div class="stars">
+      <button class="star-btn" onclick="rateStar(1)" title="Poor">⭐</button>
+      <button class="star-btn" onclick="rateStar(2)" title="Fair">⭐</button>
+      <button class="star-btn" onclick="rateStar(3)" title="Good">⭐</button>
+      <button class="star-btn" onclick="rateStar(4)" title="Great">⭐</button>
+      <button class="star-btn" onclick="rateStar(5)" title="Excellent">⭐</button>
+    </div>
+    <div class="feedback-thanks" id="feedback-thanks">
+      Thank you for rating! Your feedback means a lot 🙏
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="edition-footer">
+    <span class="footer-logo">Raj Vir AI Studio</span>
+    <div class="footer-links">
+      <a href="https://rajviraistudio.online">Website</a>
+      <a href="https://www.youtube.com/channel/UCCfh9sMfIlAP4DT2kH8umuw?sub_confirmation=1" target="_blank">YouTube</a>
+      <a href="newsletter.html">All Editions</a>
+      <a href="mailto:hello@rajviraistudio.online">Contact</a>
+    </div>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<script>
+  // ===== LANGUAGE TOGGLE =====
+  let currentLang = 'en';
+  let translationCache = {};
+  const originalTexts = {};
+
+  const translatableIds = [
+    'edition-title','hook-text',
+    'topic-1','topic-2','topic-3','topic-4','topic-5','topic-extra',
+    's1-headline','s1-rundown','s1-details','s1-matters',
+    's2-headline','s2-rundown','s2-details','s2-matters',
+    's3-headline','s3-rundown','s3-details','s3-matters',
+    'tool1-name','tool1-desc','tool2-name','tool2-desc',
+    'tool3-name','tool3-desc','tool4-name','tool4-desc',
+    'else1-title','else1-desc','else2-title','else2-desc',
+    'else3-title','else3-desc','else4-title','else4-desc','else5-title','else5-desc',
+    'p1-title','p1-use','p1-text','p2-title','p2-use','p2-text',
+    'prev-title','vid1-title','vid2-title','vid3-title'
+  ];
+
+  window.addEventListener('DOMContentLoaded', () => {
+    translatableIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) originalTexts[id] = el.innerHTML;
+    });
+  });
+
+  async function translateText(text, targetLang) {
+    const key = `${targetLang}:${text.substring(0,50)}`;
+    if (translationCache[key]) return translationCache[key];
+    try {
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const translated = data[0].map(x => x[0]).join('');
+      translationCache[key] = translated;
+      return translated;
+    } catch(e) { return text; }
+  }
+
+  async function setLang(lang) {
+    if (lang === currentLang) return;
+    currentLang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-kn').classList.toggle('active', lang === 'kn');
+    if (lang === 'en') {
+      translatableIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && originalTexts[id]) el.innerHTML = originalTexts[id];
+      });
+      return;
+    }
+    document.getElementById('translating').classList.add('show');
+    for (const id of translatableIds) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const text = el.innerText || el.textContent;
+      if (!text.trim() || text.startsWith('[')) continue;
+      el.innerHTML = await translateText(text, 'kn');
+    }
+    document.getElementById('translating').classList.remove('show');
+  }
+
+  // ===== COPY PROMPT =====
+  function copyPrompt(id, btn) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy Prompt', 2000);
+    });
+  }
+
+  // ===== COPY LINK =====
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = document.querySelector('.share-btn:last-child');
+      const orig = btn.textContent;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = orig, 2000);
+    });
+  }
+
+  // ===== STAR RATING =====
+  function rateStar(rating) {
+    const stars = document.querySelectorAll('.star-btn');
+    stars.forEach((s, i) => {
+      s.classList.toggle('active', i < rating);
+    });
+    document.getElementById('feedback-thanks').classList.add('show');
+    console.log('Rating:', rating);
+  }
+</script>
+</body>
+</html>
